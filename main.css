@@ -1,0 +1,331 @@
+*{
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 25px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-image: url("image/imagefondo.jpg") ;
+    background-size: cover;
+    min-height: 100vh;
+}
+#nav-center{
+    background-color: rgb(5, 5, 53) ;
+    background-size: cover;
+    color: aquamarine !important;
+    font-size: 18px;
+    text-decoration: none;
+}
+#nav-center1{
+    background-size: cover;
+    color: aquamarine !important;
+    font-size: 18px;
+    text-decoration: none;
+}
+.display{
+    display: flex;
+    justify-content: right;
+}
+.display a:hover{
+    color: aquamarine !important;
+    opacity: 0.8; 
+}
+.hamburgercolor{
+    color: aquamarine !important;
+} 
+.carousel{
+    text-align: center;
+}
+.rhyno{
+    text-align: center;
+    color: rgb(54, 197, 149);
+    background-color: rgb(5, 5, 53);
+}
+.formregistrer{
+    margin: 70px 0;
+}
+
+.formindex{
+    margin: 0 350px;
+}    
+@media (max-width: 768px) {
+    .formindex{
+    margin: 0 250px;
+    }
+}
+@media (max-width:570px) {
+    .formindex{
+    margin: 0 100px;
+    }
+}
+
+.registerbtn{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+.btn-r{
+    color:aquamarine !important;
+    background-color: rgb(5, 5, 53) !important;
+    margin-left:7px;
+    
+}
+.btn-r:hover{
+    color: yellow !important;
+}
+.btn-r2{
+    color:aquamarine !important;
+    background-color: rgb(5, 5, 53) !important;
+    margin-right: 7px;
+}
+.btn-r2:hover{
+    color: yellow !important;
+}
+.form-text{
+    text-align: center;
+}
+.form-text{
+    color: rgb(128, 134, 139) !important;
+    font-weight: 500;
+}
+
+.select{
+    margin: 50px 0;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 800;
+    background-color: rgb(5, 5, 53);
+    color: aliceblue;
+}
+.headerdiv{
+    color: aliceblue;
+    text-align: center;
+    background-color: rgb(5, 5, 53);
+}
+
+.cotizar{
+    border-radius: 5px;
+    font-size: 23px;
+    color: white;
+    background-color: rgba(117, 94, 26, 0.459);
+    cursor: pointer;
+}
+.form{
+    margin: 50px 0px;
+}
+.forminput{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 27px;
+    gap: 5px;
+    
+}
+.formone{
+    color: rgb(5, 5, 53);
+    margin-left: 30px;
+}
+.one{
+    text-align: center;
+    margin: 25px 5px;
+    color: aliceblue;
+    
+}
+.formtwo{
+    color: rgb(5, 5, 53);;
+    text-align: center;
+}
+.two{
+    text-align: center;
+    margin: 25px 5px;
+}
+.formthree{
+    color: rgb(5, 5, 53);
+    margin-left: 30px;
+}
+.three{
+    text-align: center;
+    margin: 25px 5px;
+}
+.formfour{
+    color: rgb(5, 5, 53);
+}
+.four{
+    text-align: center;
+    margin: 25px 5px;
+}
+.formfive{
+    color: rgb(5, 5, 53);
+    margin-left: 85px;
+}
+.five{
+    text-align: center;
+    margin: 25px 5px;
+}
+.formsix{
+    color: rgb(5, 5, 53);  
+    margin-left: 35px;
+}
+.six{
+    text-align: center;
+    margin: 25px 5px;
+}
+.formseven{
+    color: rgb(5, 5, 53);
+    margin-left: 85px;
+}
+.seven{
+    text-align: center;
+    margin: 25px 5px;
+}
+.formeigth{
+    color: rgb(5, 5, 53);
+    margin-left: 35px;
+}
+.eigth{
+    text-align: center;
+    margin: 25px 5px;    
+}
+.enter{
+    margin: 50px ;
+    margin-left: 75px;
+    text-align: center;   
+}
+.result{
+    text-align: center;
+    /*background-color: rgb(19, 114, 114);*/
+    background-color: rgb(5, 5, 53);
+    margin: 0 300px;
+    color:white;
+}
+.amount{
+    font-size: 18px;
+    /*background-color: rgb(5, 5, 53);*/
+    color: azure;
+    margin: 20px 250px;
+}
+.main-contacto {
+    align-items: center;
+    font-size: 1.9rem;
+    color: #17265F;
+    margin: 100px; }
+    @media (max-width: 768px) {
+    .main-contacto {
+    font-size: 2.1rem;
+    margin: 50px; } 
+    }
+.main-contacto .contacto-empresa:hover {
+    color: #2CA0CE;
+    cursor: pointer; 
+}
+.main-contacto .contacto-enviar {
+    background: rgb(5, 5, 53);
+    color: aquamarine;
+    font-size: 1.4rem;
+    margin-top: 25px;
+    cursor: pointer;
+    border-radius: 25%;
+    transition: .7s; 
+}
+.main-contacto .contacto-enviar:hover {
+    color: yellow;
+    border-radius: 50%;
+    border: none; 
+}
+main hr {
+    border: none;
+    height: 1px;
+    background-color: #060945;
+    max-width: 1200px;
+    margin: auto; }
+
+.contacto-h3 {
+    color: #17265F;
+    margin-top: 70px;
+    text-align: center;
+    font-size: 3.2rem; }
+    @media (max-width: 768px) {
+    .contacto-h3 {
+    font-size: 2.5rem; } }
+
+.contacto-mapa {
+    display: flex;
+    justify-content: center;
+    margin: 50px; }
+    @media (max-width: 768px) {
+    .contacto-mapa {
+        width: auto; } 
+}
+
+footer{
+	padding: 10px 0px;
+	background-image: url("image/imagefooter.jpg");
+}
+
+.container-footer{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: auto;
+	max-width: 1200px;
+	margin-bottom: 20px;
+}
+
+.box-footer{
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	font-size: 11px;
+}
+.footer-logo {
+	margin-top: 100px;
+    font-size: 22px;
+}
+
+.box-footer .terminos{
+	max-width: 350px;
+	margin-top: 10px;
+	font-weight: 900;
+	color: white;
+	font-size: 12px;
+    
+}
+.box-footer h2{
+	margin-top: 100px;
+	margin-bottom: 10px;
+	color: silver;
+	font-weight: 800;
+    margin-right: 10px;
+}
+.box-footer a{
+	margin-top: 10px;
+	color: white;
+	font-weight: 1500;
+    
+}
+.box-footer a:hover{
+	opacity: 0.8;
+    color: aquamarine;
+}
+.box-footer a .fa-brands{
+	font-size: 15px;
+
+}
+.box-copyright{
+	max-width: 1200px;
+	margin: auto;
+	text-align: center;
+
+}
+.box-copyright p{
+	margin-top: 10px;
+	color: silver;
+}
+.box-copyright hr{
+	border: none;
+	height: 1px;
+	background-color:white;
+
+}
+
