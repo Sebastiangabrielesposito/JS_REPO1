@@ -173,16 +173,17 @@ alert("BIENVENIDO A BLACK RHYNO EXCHANGE")
 // //fin tipo de transacción parte2
 
 
+
 //inicio simulador de conversor
 function convertir() {
     var valore = parseInt(document.getElementById("valor").value);
     var resultado = 0
     var dolar = 300;
     var euro = 310;
-    function Result (moneda){
+    const Result = (moneda) => {
         document.getElementById("resultado1").innerHTML=resultado.toFixed(2) + moneda;
     }
-
+    
     if(document.getElementById("uno").checked) {
         resultado = valore / dolar;
         Result(" (USD)Dolares")
@@ -227,8 +228,9 @@ function convertirbtc(){
         Result("  $Argentinos");    
     } 
 }
-convertirbtc();
-convertir();
+const cotizar = document.getElementById("cotizador");
+cotizar.addEventListener("click", () => convertir() + convertirbtc());
+
 //var resultado =  parseInt(document.getElementById("Resultado").value);
 
 //fin simulador conversor
@@ -266,3 +268,5 @@ convertir();
 
 //fin transacción efectuada
 
+//boton.addeventlistener("click", y la funcion)
+//variable.onclick = () => funcion
