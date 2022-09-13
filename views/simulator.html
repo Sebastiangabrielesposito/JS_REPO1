@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="../main.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="shortcut icon"  href="../image/exchange.ico">
     
     
-    <title>CASA DE CAMBIO-Simulador</title>
+    <title>Black Rhyno-Simulador</title>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark " id="nav-center">
@@ -83,6 +85,15 @@
                 <h1 id="resultado1" class="result">Resultado: $0.00</h1>
             </div>
         </form>
+        <div data-aos="fade-up">
+            <div id="info">
+                <input type="button" id="btn" value="¡Click para mas Información!">
+                <p id="paragraph" class="desaparecer"> Las operaciones con instrumentos financieros o criptomonedas implican un elevado riesgo, incluyendo la pérdida parcial o total del capital invertido.";</p>
+            </div>
+        </div>    
+        <!-- <div id="info">
+            <input type="button" id="btn" value="¡Click para mas Información!">
+        </div> -->
     </main>
     
     <footer>
@@ -128,5 +139,12 @@
     <!-- scipt fontawesome -->
     <script src="https://kit.fontawesome.com/25167accfa.js" crossorigin="anonymous"></script>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 1000
+        });
+    </script>
 </body>
 </html>

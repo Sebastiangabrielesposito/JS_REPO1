@@ -16,34 +16,34 @@ let question2;
 var typecard;
 var typecard1;
 var other;
-methods.push("Lemon cash");
+// methods.push("Lemon cash");
 
-let suscription = [{
-    level: "Init",
-    price: 25
-},
-{
-    level: "Medium",
-    price: 50
+// let suscription = [{
+//     level: "Init",
+//     price: 25
+// },
+// {
+//     level: "Medium",
+//     price: 50
 
-}];
+// }];
 
-let expert = {
-    level:"Expert",
-    price: 100
-};
-//Métodos
-suscription.push(expert);
-console.log("Se encuentra Lemon cash en lista methods?:  " + methods.includes("Lemon cash"));
-console.log("Hay alguna suscripción de valor U$D 101?: " + suscription.some(s => s.price > 100));
-console.log(suscription.filter(item => item.level === "Medium" && item.price < 55));
-console.log(suscription.filter(item => item.price > 20));
-console.log(suscription.find(su => su.level === "Init"));
-console.log(methods.find(method => method === "UALA"));
-console.log(suscription.map(item => item.level));
+// let expert = {
+//     level:"Expert",
+//     price: 100
+// };
+// //Métodos
+// suscription.push(expert);
+// console.log("Se encuentra Lemon cash en lista methods?:  " + methods.includes("Lemon cash"));
+// console.log("Hay alguna suscripción de valor U$D 101?: " + suscription.some(s => s.price > 100));
+// console.log(suscription.filter(item => item.level === "Medium" && item.price < 55));
+// console.log(suscription.filter(item => item.price > 20));
+// console.log(suscription.find(su => su.level === "Init"));
+// console.log(methods.find(method => method === "UALA"));
+// console.log(suscription.map(item => item.level));
 //fin métodos
 
-alert("BIENVENIDO A BLACK RHYNO EXCHANGE")
+//alert("BIENVENIDO A BLACK RHYNO EXCHANGE")
 
 //Inicio de login
 // function log(){
@@ -230,6 +230,53 @@ function convertirbtc(){
 }
 const cotizar = document.getElementById("cotizador");
 cotizar.addEventListener("click", () => convertir() + convertirbtc());
+
+const info = document.getElementById("info")
+const btn = document.getElementById("btn")
+const paragrap = document.getElementById("paragraph")
+paragrap.style.color = "#060945";
+btn.addEventListener("click", (e) => {
+    if(paragrap.classList.contains("desaparecer")) {
+        paragrap.classList.remove("desaparecer");
+    }else {
+        paragrap.classList.add("desaparecer");
+    }
+});
+
+
+
+// btn.addEventListener("click", (e) => {
+//     var paragrap = document.createElement("p");    
+//     paragrap.style.color = "#060945";
+//     paragrap.innerText = "Aviso legal: Las operaciones con instrumentos financieros o criptomonedas implican un elevado riesgo, incluyendo la pérdida parcial o total del capital invertido.";
+//     info.append(paragrap);
+    
+//     if(info.classList.contains("paragrap") ) {
+//         paragrap.classList.add("desaparecer");
+        
+        
+        
+//     }else {
+//         paragrap.classList.remove("desaparecer");
+//     }
+        
+// });   
+    
+    // if(info.contains(paragrap)){
+
+    // }
+    
+    // if(paragrap.classList.contains("desaparecer")){ 
+    //     paragrap.classList.remove("desaparecer")
+    //     paragrap.style.color = "#060945";
+    //     paragrap.innerText = "Aviso legal: Las operaciones con instrumentos financieros o criptomonedas implican un elevado riesgo, incluyendo la pérdida parcial o total del capital invertido.";
+        
+    // }else{
+    //     paragrap.classList.add("desaparecer");
+        
+    // }
+// });
+//btn.addEventListener("click", () => paragrap.classList.toggle("desaparecer"));
 
 //var resultado =  parseInt(document.getElementById("Resultado").value);
 
