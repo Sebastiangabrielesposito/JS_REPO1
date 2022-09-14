@@ -41,6 +41,28 @@ body{
     color: rgb(54, 197, 149);
     background-color: rgb(5, 5, 53);
 }
+#moon1{
+    display: flex;
+    justify-content:right;
+    color: rgb(5, 5, 53);
+    font-size: 30px;
+    margin-right: 15px;
+    margin-top: 20px;
+}
+.moonicon:hover{
+    color: rgb(7, 148, 148);
+}
+.lunar{
+    background-color: black;
+}
+#Mobile_validation{
+    cursor: pointer;
+    font-weight: 500;
+}
+.Mobile_validation:hover{
+    color: #2CA0CE;
+    cursor: pointer;
+}
 .formregistrer{
     margin: 70px 0;
 }
