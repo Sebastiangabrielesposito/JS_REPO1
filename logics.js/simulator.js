@@ -170,13 +170,43 @@ function moddark1 (){
 
 moon1.addEventListener("click", (e) => {
     moddark1();
+    if(container.classList.contains("lunar")){
+        localStorage.setItem("themeuser","true");
+    }else {
+        localStorage.setItem("themeuser","false");
+    }
+    
 });
 sun1.addEventListener("click", (e) => {
     moddark1();
+    if(container.classList.contains("lunar")){
+        localStorage.setItem("themeuser","true");
+    }else {
+        localStorage.setItem("themeuser","false");
+    }
+    
 });
-if(container.classList.contains("lunar")){
-    localStorage.setItem("themeuser","lunar");
+
+if(localStorage.getItem("themeuser") === "true"){
+    container.classList.add("lunar",);
+    forminput.style.color = "white";
+    formone.style.color = "white";
+    formtwo.style.color = "white";
+    formthree.style.color = "white";
+    formfour.style.color = "white";
+    formfive.style.color = "white";
+    formsix.style.color = "white";
+    formseven.style.color = "white";
+    formeigth.style.color = "white";
+    container.classList.add("lunar",);
+    sun1.classList.remove("desaparecer");
+    moon1.classList.add("desaparecer");
+    paragrap.style.color = "white";
+}else {
+    container.classList.remove("lunar",);
 }
+
+
 //const local = localStorage.getItem("themeuser");
 
 

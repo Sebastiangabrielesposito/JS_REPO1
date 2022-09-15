@@ -25,7 +25,27 @@ function moddark2 (){
 
 moon1.addEventListener("click", (e) => {
     moddark2();
+    if(container.classList.contains("lunar")){
+        localStorage.setItem("themeuser","true");
+    }else {
+        localStorage.setItem("themeuser","false");
+    }
 });
 sun1.addEventListener("click", (e) => {
     moddark2();
+    if(container.classList.contains("lunar")){
+        localStorage.setItem("themeuser","true");
+    }else {
+        localStorage.setItem("themeuser","false");
+    }
 });
+
+if(localStorage.getItem("themeuser") === "true"){
+    container.classList.add("lunar",);
+    main_contacto.style.color = "white";
+    nuestas_oficinas.style.color = "white";
+    sun1.classList.remove("desaparecer");
+    moon1.classList.add("desaparecer");
+}else {
+    container.classList.remove("lunar",);
+}

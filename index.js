@@ -38,11 +38,32 @@ function moddark (){
 
 moon1.addEventListener("click", (e) => {
     moddark();
+    if(container.classList.contains("lunar")){
+        localStorage.setItem("themeuser","true");
+    }else {
+        localStorage.setItem("themeuser","false");
+    }
 });
 change1.addEventListener("click", (e) => {
     moddark();
+    if(container.classList.contains("lunar")){
+        localStorage.setItem("themeuser","true");
+    }else {
+        localStorage.setItem("themeuser","false");
+    }
 });
 
+if(localStorage.getItem("themeuser") === "true"){
+    container.classList.add("lunar",);
+    username.style.color = "white", username;
+    password.style.color = "white";
+    Mobile_validation.style.color = "silver";
+    moon1.classList.add("desaparecer");
+    change1.classList.remove("desaparecer")
+    change1.classList.add("sun");
+    change1.classList.add("sunicoon")
+    change();
+}else {
+    container.classList.remove("lunar",);
+}
 
-// localStorage.setItem("click",moon1);
-// localStorage.getItem("click",moon1);
