@@ -48,12 +48,13 @@ body{
     font-size: 30px;
     margin-right: 15px;
     margin-top: 20px;
+    cursor: pointer;
 }
 .moonicon:hover{
     color: rgb(7, 148, 148);
 }
 .lunar{
-    background-color: black;
+    background-color: rgb(4, 15, 36);
 }
 #Mobile_validation{
     cursor: pointer;
@@ -62,6 +63,32 @@ body{
 .Mobile_validation:hover{
     color: #2CA0CE;
     cursor: pointer;
+}
+#sun1{
+    display: flex;
+    justify-content:right;
+    color: azure;
+    font-size: 30px;
+    margin-right: 15px;
+    margin-top: 20px;
+}
+.sun{
+    display: flex;
+    justify-content:right;
+    color: azure;
+    font-size: 30px;
+    margin-right: 15px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.sunicoon:hover{
+    color: rgb(7, 148, 148) !important;
+}
+.desaparecer{
+    display: none !important;
+}
+.aparecer{
+    display: block;
 }
 .formregistrer{
     margin: 70px 0;
@@ -134,20 +161,31 @@ body{
     cursor: pointer;
 }
 .form{
-    margin: 50px 0px;
+    margin: 50px  0px;
 }
 .forminput{
     display: flex;
     flex-direction: column;
     text-align: center;
     font-size: 27px;
-    gap: 5px;
-    
+    gap: 5px;       
+}@media (max-width: 400px) {
+    .forminput{
+    text-align: center;
+    margin: 0 ;
+    font-size: 22px;
+    }
 }
 .formone{
     color: rgb(5, 5, 53);
     margin-left: 30px;
-}
+}@media (max-width: 400px) {
+    .formone{
+    text-align: center;
+    margin: 0 ;
+    margin-left: 23px;
+    }
+}    
 .one{
     text-align: center;
     margin: 25px 5px;
@@ -169,6 +207,12 @@ body{
 .three{
     text-align: center;
     margin: 25px 5px;
+}@media (max-width: 400px) {
+    .formthree{
+    text-align: center;
+    margin: 0 ;
+    margin-left: 23px;
+    }
 }
 .formfour{
     color: rgb(5, 5, 53);
@@ -180,12 +224,18 @@ body{
 .formfive{
     color: rgb(5, 5, 53);
     margin-left: 85px;
+}@media (max-width: 400px) {
+    .formfive{
+    text-align: center;
+    margin: 0 ;
+    margin-left: 70px;
+    }
 }
 .five{
     text-align: center;
     margin: 25px 5px;
 }
-.formsix{
+    .formsix{
     color: rgb(5, 5, 53);  
     margin-left: 35px;
 }
@@ -196,6 +246,12 @@ body{
 .formseven{
     color: rgb(5, 5, 53);
     margin-left: 85px;
+}@media (max-width: 400px) {
+    .formseven{
+    text-align: center;
+    margin: 0 ;
+    margin-left: 72px;
+    }
 }
 .seven{
     text-align: center;
@@ -221,12 +277,37 @@ body{
     margin: 0 300px;
     color:white;
 }
+    @media (max-width: 368px) {
+    .result{    
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    background-color: rgb(5, 5, 53);
+    margin: 50px 0 auto;
+    }    
+}@media (max-width: 768px) {
+    .result{    
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    background-color: rgb(5, 5, 53);
+    margin: 50px 0 auto;
+    }    
+}
 .amount{
     font-size: 18px;
     /*background-color: rgb(5, 5, 53);*/
     color: azure;
     margin: 20px 250px;
-}
+    text-align: center;
+}@media (max-width: 768px) {
+    .amount{    
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    margin: 50px 0 auto;
+    }
+}    
 .main-contacto {
     align-items: center;
     font-size: 1.9rem;
@@ -236,7 +317,7 @@ body{
     .main-contacto {
     font-size: 2.1rem;
     margin: 50px; } 
-    }
+}
 .main-contacto .contacto-empresa:hover {
     color: #2CA0CE;
     cursor: pointer; 
@@ -288,12 +369,7 @@ main hr {
     background-color: #060945;
     color: azure;
 }
-.desaparecer{
-    display: none;
-}
-/*.aparecer{
-    display: block;
-}*/
+
 footer{
 	padding: 10px 0px;
 	background-image: url("image/imagefooter.jpg");

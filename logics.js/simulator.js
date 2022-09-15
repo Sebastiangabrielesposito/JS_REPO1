@@ -45,6 +45,142 @@ var other;
 
 //alert("BIENVENIDO A BLACK RHYNO EXCHANGE")
 
+
+
+
+//inicio simulador de conversor
+function convertir() {
+    var valore = parseInt(document.getElementById("valor").value);
+    var resultado = 0
+    var dolar = 300;
+    var euro = 310;
+    const Result = (moneda) => {
+        document.getElementById("resultado1").innerHTML=resultado.toFixed(2) + moneda;
+    }
+    
+    if(document.getElementById("uno").checked) {
+        resultado = valore / dolar;
+        Result(" (USD)Dolares")
+    }
+    else if (document.getElementById("dos").checked) {
+        resultado = valore / euro;
+        Result(" (EU)Euros");
+    }
+    else if (document.getElementById("tres").checked) {
+        resultado = dolar * valore;
+        Result("  $Argentinos");   
+    }
+    else if (document.getElementById("cuatro").checked) {
+        resultado = euro *  valore;
+        Result("  $Argentinos");
+    } 
+    else if (document.getElementById("cinco").checked) {
+        resultado = valore / btc;
+        Result(" unidades de BTC");
+    }
+    else if (document.getElementById("seis").checked) {
+        resultado = valore/ 300 / btc;
+        Result(" unidades de BTC");
+    }    
+}
+
+
+function convertirbtc(){
+    
+    var valore = parseInt(document.getElementById("valor").value);
+    function Result (moneda){
+        document.getElementById("resultado1").innerHTML=resultado.toFixed(2) + moneda;
+    }
+
+    if(document.getElementById("siete").checked) {
+        resultado = btc * valore;
+        Result(" (USD)Dolares");
+    }
+    
+    if(document.getElementById("ocho").checked) {
+        resultado = btc * 300 * valore;
+        Result("  $Argentinos");    
+    } 
+}
+const cotizar = document.getElementById("cotizador");
+cotizar.addEventListener("click", () => convertir() + convertirbtc());
+
+
+const info = document.getElementById("info")
+const btn = document.getElementById("btn")
+const paragrap = document.getElementById("paragraph")
+paragrap.style.color = "#060945";
+
+btn.addEventListener("click", (e) => {
+    if(paragrap.classList.contains("desaparecer")) {
+        paragrap.classList.remove("desaparecer");
+    }else {
+        paragrap.classList.add("desaparecer");
+    }
+});
+
+const container = document.getElementById("container");
+const moon = document.getElementById("moon");
+let moon1 = document.getElementById("moon1");
+let sun1 = document.getElementById("sun1");
+let forminput = document.getElementById("forminput");
+let formone = document.getElementById("formone");
+let formtwo = document.getElementById("formtwo");
+let formthree = document.getElementById("formthree");
+let formfour = document.getElementById("formfour");
+let formfive = document.getElementById("formfive");
+let formsix = document.getElementById("formsix");
+let formseven = document.getElementById("formseven");
+let formeigth = document.getElementById("formeigth");
+
+function moddark1 (){
+    if(forminput.style.color != "white"){
+        forminput.style.color = "white";
+        formone.style.color = "white";
+        formtwo.style.color = "white";
+        formthree.style.color = "white";
+        formfour.style.color = "white";
+        formfive.style.color = "white";
+        formsix.style.color = "white";
+        formseven.style.color = "white";
+        formeigth.style.color = "white";
+        container.classList.add("lunar",);
+        sun1.classList.remove("desaparecer");
+        moon1.classList.add("desaparecer");
+        paragrap.style.color = "white";
+        //forminput.style.background = "azure";
+        //moon1.style.color = "white";
+    }else {
+        forminput.style.color = "#17265F";
+        container.classList.remove("lunar");
+        sun1.classList.add("desaparecer");
+        moon1.classList.remove("desaparecer");
+        moon1.style.color = "rgb(5, 5, 53)";
+        formone.style.color = "#17265F";
+        formtwo.style.color = "#17265F";
+        formthree.style.color = "#17265F";
+        formfour.style.color = "#17265F";
+        formfive.style.color = "#17265F";
+        formsix.style.color = "#17265F";
+        formseven.style.color = "#17265F";
+        formeigth.style.color = "#17265F";
+        paragrap.style.color = "#060945";
+    }
+}    
+
+moon1.addEventListener("click", (e) => {
+    moddark1();
+});
+sun1.addEventListener("click", (e) => {
+    moddark1();
+});
+if(container.classList.contains("lunar")){
+    localStorage.setItem("themeuser","lunar");
+}
+//const local = localStorage.getItem("themeuser");
+
+
+
 //Inicio de login
 // function log(){
 //     login = Number(prompt(" \n Black Rhyno Exchange \n\n 1. Ingresar a la cuenta \n 2. Registrarse "));
@@ -172,115 +308,6 @@ var other;
 // }
 // //fin tipo de transacción parte2
 
-
-
-//inicio simulador de conversor
-function convertir() {
-    var valore = parseInt(document.getElementById("valor").value);
-    var resultado = 0
-    var dolar = 300;
-    var euro = 310;
-    const Result = (moneda) => {
-        document.getElementById("resultado1").innerHTML=resultado.toFixed(2) + moneda;
-    }
-    
-    if(document.getElementById("uno").checked) {
-        resultado = valore / dolar;
-        Result(" (USD)Dolares")
-    }
-    else if (document.getElementById("dos").checked) {
-        resultado = valore / euro;
-        Result(" (EU)Euros");
-    }
-    else if (document.getElementById("tres").checked) {
-        resultado = dolar * valore;
-        Result("  $Argentinos");   
-    }
-    else if (document.getElementById("cuatro").checked) {
-        resultado = euro *  valore;
-        Result("  $Argentinos");
-    } 
-    else if (document.getElementById("cinco").checked) {
-        resultado = valore / btc;
-        Result(" unidades de BTC");
-    }
-    else if (document.getElementById("seis").checked) {
-        resultado = valore/ 300 / btc;
-        Result(" unidades de BTC");
-    }    
-}
-
-
-function convertirbtc(){
-    
-    var valore = parseInt(document.getElementById("valor").value);
-    function Result (moneda){
-        document.getElementById("resultado1").innerHTML=resultado.toFixed(2) + moneda;
-    }
-
-    if(document.getElementById("siete").checked) {
-        resultado = btc * valore;
-        Result(" (USD)Dolares");
-    }
-    
-    if(document.getElementById("ocho").checked) {
-        resultado = btc * 300 * valore;
-        Result("  $Argentinos");    
-    } 
-}
-const cotizar = document.getElementById("cotizador");
-cotizar.addEventListener("click", () => convertir() + convertirbtc());
-
-const info = document.getElementById("info")
-const btn = document.getElementById("btn")
-const paragrap = document.getElementById("paragraph")
-paragrap.style.color = "#060945";
-btn.addEventListener("click", (e) => {
-    if(paragrap.classList.contains("desaparecer")) {
-        paragrap.classList.remove("desaparecer");
-    }else {
-        paragrap.classList.add("desaparecer");
-    }
-});
-
-
-
-
-// btn.addEventListener("click", (e) => {
-//     var paragrap = document.createElement("p");    
-//     paragrap.style.color = "#060945";
-//     paragrap.innerText = "Aviso legal: Las operaciones con instrumentos financieros o criptomonedas implican un elevado riesgo, incluyendo la pérdida parcial o total del capital invertido.";
-//     info.append(paragrap);
-    
-//     if(info.classList.contains("paragrap") ) {
-//         paragrap.classList.add("desaparecer");
-        
-        
-        
-//     }else {
-//         paragrap.classList.remove("desaparecer");
-//     }
-        
-// });   
-    
-    // if(info.contains(paragrap)){
-
-    // }
-    
-    // if(paragrap.classList.contains("desaparecer")){ 
-    //     paragrap.classList.remove("desaparecer")
-    //     paragrap.style.color = "#060945";
-    //     paragrap.innerText = "Aviso legal: Las operaciones con instrumentos financieros o criptomonedas implican un elevado riesgo, incluyendo la pérdida parcial o total del capital invertido.";
-        
-    // }else{
-    //     paragrap.classList.add("desaparecer");
-        
-    // }
-// });
-//btn.addEventListener("click", () => paragrap.classList.toggle("desaparecer"));
-
-//var resultado =  parseInt(document.getElementById("Resultado").value);
-
 //fin simulador conversor
 
 
@@ -316,5 +343,3 @@ btn.addEventListener("click", (e) => {
 
 //fin transacción efectuada
 
-//boton.addeventlistener("click", y la funcion)
-//variable.onclick = () => funcion
