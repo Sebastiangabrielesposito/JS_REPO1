@@ -106,6 +106,8 @@ const cotizar = document.getElementById("cotizador");
 cotizar.addEventListener("click", () => convertir() + convertirbtc());
 
 
+
+
 const info = document.getElementById("info")
 const btn = document.getElementById("btn")
 const paragrap = document.getElementById("paragraph")
@@ -118,6 +120,9 @@ btn.addEventListener("click", (e) => {
         paragrap.classList.add("desaparecer");
     }
 });
+
+
+
 
 const container = document.getElementById("container");
 const moon = document.getElementById("moon");
@@ -186,6 +191,8 @@ sun1.addEventListener("click", (e) => {
     }
     
 });
+
+
 
 if(localStorage.getItem("themeuser") === "true"){
     container.classList.add("lunar",);

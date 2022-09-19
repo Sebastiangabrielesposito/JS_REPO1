@@ -9,6 +9,7 @@ body{
     background-size: cover;
     min-height: 100vh;
 }
+
 #nav-center{
     background-color: rgb(5, 5, 53) ;
     background-size: cover;
@@ -441,3 +442,82 @@ footer{
 
 }
 
+.godwrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 200px 0;
+}
+.wrapper{
+    height:240px ;
+    background-color: #fff;
+    max-width: 410px;
+    background: #fff;
+    padding: 16px 25px;
+    transition:  height 0.2s ease;
+    /*background-image: url("image/imagebtc.jpg") ;*/
+    /*background: linear-gradient(to left ,darkblue,azure);*/
+}
+.active1{
+    height: 485px;
+}
+.formG{
+    display: block;
+    justify-content: center;
+}
+#inputg{
+    width: 100%;
+    height: 40px;
+}
+#generate{
+    width: 100%;
+    background-color: #060945;
+    color:aquamarine;
+    font-size: 17px;
+    height: 45px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+#generate:hover{
+    color: yellow;
+}
+.h1qr{
+    font-size: 21px;
+    font-weight: 500;
+
+}
+.pqr{
+    margin-top: 5px;
+    color: #474747;
+    font-size: 16px;
+}
+.wrapper .formG{
+    margin: 20PX 0  25PX;
+}
+.formG :where(input, button){
+    width: 1000px;
+    height: 55px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+.formG input{
+    font-size: 16px;
+    pad: 0 17px;
+    border: 1px solid #999;
+}
+.wrapper .qr-code{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    padding: 33px 0;
+    border-radius: 5px;
+    pointer-events: none;
+    opacity: 0;
+}    
+.active1 .qr-code{
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.5s 0.05s ease;
+}

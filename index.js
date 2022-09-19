@@ -1,3 +1,4 @@
+
 const container = document.getElementById("container");
 const moon = document.getElementById("moon");
 const username = document.getElementById("username");
@@ -67,3 +68,29 @@ if(localStorage.getItem("themeuser") === "true"){
     container.classList.remove("lunar",);
 }
 
+
+
+// let wrapper = document.querySelector(".wrapper"),
+// qrinput =wrapper.querySelector(".formG .inputg"),
+// generateBtn = wrapper.querySelector(".formG .btn11"),
+// qrimg =wrapper.querySelector(".qr-code img");
+// let generate = document.getElementById("generate");
+
+
+// generateBtn.addEventListener("click", () => {
+//         let qrvalue = qrinput.value;
+//         if(!qrvalue) return;
+//         generateBtn.value = "Generating QR Code...";
+//         qrimg.src =  `https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=${qrvalue}`;
+//         qrimg.addEventListener("load", () => {
+//             wrapper.classList.add("active1");
+//             generateBtn.value = "Generate QR ";
+//             console.log(generate.value);
+//         });
+//     });
+
+//     qrinput.addEventListener("keyup", () => {
+//         if(!qrinput.value){
+//             wrapper.classList.remove("active1");
+//         }
+//     })
