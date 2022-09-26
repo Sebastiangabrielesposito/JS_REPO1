@@ -1,11 +1,11 @@
-const opcion1 = "1.Peso ($)/Dólar(U$D)";
-const opcion2 = "2.Peso($)/Euro(EU)";
-const opcion3 = "3.Dólar(U$D)/Peso($)";
-const opcion4 = "4.Euro(EU)/Peso($)";
-const opcion5 = "5.Dólar(U$D)/Bitcoin(BTC)"
-const opcion6 = "6.Peso($)/Bitcoin(BTC)"
-const opcion7 = "7.Bitcoin(BTC)/Dólar(U$D)"
-const opcion8 = "8.Bitcoin(BTC)/Peso($)"
+// const opcion1 = "1.Peso ($)/Dólar(U$D)";
+// const opcion2 = "2.Peso($)/Euro(EU)";
+// const opcion3 = "3.Dólar(U$D)/Peso($)";
+// const opcion4 = "4.Euro(EU)/Peso($)";
+// const opcion5 = "5.Dólar(U$D)/Bitcoin(BTC)"
+// const opcion6 = "6.Peso($)/Bitcoin(BTC)"
+// const opcion7 = "7.Bitcoin(BTC)/Dólar(U$D)"
+// const opcion8 = "8.Bitcoin(BTC)/Peso($)"
 var btc = 20000;
 var methods =["Mercado pago", "UALA"]
 let operation;
@@ -54,6 +54,7 @@ function convertir() {
     var resultado = 0
     var dolar = 300;
     var euro = 310;
+    let yuan = 20.41;
     const Result = (moneda) => {
         document.getElementById("resultado1").innerHTML=resultado.toFixed(2) + moneda;
     }
@@ -75,30 +76,30 @@ function convertir() {
         Result("  $Argentinos");
     } 
     else if (document.getElementById("cinco").checked) {
-        resultado = valore / btc;
-        Result(" unidades de BTC");
+        resultado = valore * 1.05 ;
+        Result(" (EU)Euros");
     }
     else if (document.getElementById("seis").checked) {
-        resultado = valore/ 300 / btc;
-        Result(" unidades de BTC");
+        resultado =  valore *  0.96 ;
+        Result(" (USD)Dolares");
     }    
 }
 
 
 function convertirbtc(){
-    
+    yuan = 20.41;
     var valore = parseInt(document.getElementById("valor").value);
     function Result (moneda){
         document.getElementById("resultado1").innerHTML=resultado.toFixed(2) + moneda;
     }
 
     if(document.getElementById("siete").checked) {
-        resultado = btc * valore;
-        Result(" (USD)Dolares");
+        resultado = valore / yuan;
+        Result(" (CNY)Yuanes");
     }
     
     if(document.getElementById("ocho").checked) {
-        resultado = btc * 300 * valore;
+        resultado = yuan * valore;
         Result("  $Argentinos");    
     } 
 }
@@ -114,11 +115,8 @@ const paragrap = document.getElementById("paragraph")
 paragrap.style.color = "#060945";
 
 btn.addEventListener("click", (e) => {
-    if(paragrap.classList.contains("desaparecer")) {
-        paragrap.classList.remove("desaparecer");
-    }else {
-        paragrap.classList.add("desaparecer");
-    }
+    (paragrap.classList.contains("desaparecer")) ?  paragrap.classList.remove("desaparecer") : paragrap.classList.add("desaparecer");
+    
 });
 
 
@@ -137,6 +135,7 @@ let formfive = document.getElementById("formfive");
 let formsix = document.getElementById("formsix");
 let formseven = document.getElementById("formseven");
 let formeigth = document.getElementById("formeigth");
+let amount = document.getElementById("amount");
 
 function moddark1 (){
     if(forminput.style.color != "white"){
@@ -153,6 +152,7 @@ function moddark1 (){
         sun1.classList.remove("desaparecer");
         moon1.classList.add("desaparecer");
         paragrap.style.color = "white";
+        amount.style.color = "white";
         //forminput.style.background = "azure";
         //moon1.style.color = "white";
     }else {
@@ -170,6 +170,7 @@ function moddark1 (){
         formseven.style.color = "#17265F";
         formeigth.style.color = "#17265F";
         paragrap.style.color = "#060945";
+        amount.style.color = "rgb(5, 5, 53)";
     }
 }    
 
@@ -206,12 +207,110 @@ if(localStorage.getItem("themeuser") === "true"){
     formseven.style.color = "white";
     formeigth.style.color = "white";
     container.classList.add("lunar",);
+    amount.style.color = "white"
     sun1.classList.remove("desaparecer");
     moon1.classList.add("desaparecer");
     paragrap.style.color = "white";
 }else {
     container.classList.remove("lunar",);
 }
+
+
+const form = document.querySelector("#form-search");
+const moneda = document.querySelector("#moneda");
+const criptomoneda = document.querySelector("#criptomonedas");
+const formContainer = document.querySelector(".form-side");
+const containerAnswer = document.querySelector(".container-answer");
+
+const objBusqueda = {
+    moneda: '',
+    criptomoneda: ''
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    consultarCriptos();
+
+    form.addEventListener('submit', submitForm);
+    moneda.addEventListener('change', getValue);
+    criptomoneda.addEventListener('change', getValue);
+})
+
+function submitForm(e){
+    e.preventDefault();
+    const {moneda, criptomoneda} = objBusqueda;
+    if (moneda === '' || criptomoneda === '') {
+        showError('Seleccione ambas monedas...');
+        return;
+    }
+    consultarAPI(moneda, criptomoneda);
+    //console.log(moneda);
+    //console.log(criptomoneda);
+}
+
+function consultarAPI(moneda, criptomoneda){
+    const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${criptomoneda}&tsyms=${moneda}`;
+    fetch(url)
+        .then(resultado => resultado.json())
+        .then(resultadoJson => {
+            mostrarCotizacion(resultadoJson.DISPLAY[criptomoneda][moneda]);
+            //console.log(resultadoJson.DISPLAY[criptomoneda][moneda]);
+        })
+        .catch(error => console.log(error));
+}
+
+function mostrarCotizacion(data){
+    clearHTML();
+    const {PRICE, HIGHDAY, LOWDAY, CHANGEPCT24HOUR, LASTUPDATE} = data;
+    const answer = document.createElement('div');
+    answer.classList.add('display-info');
+    answer.innerHTML = `
+    <p class="main-price">Precio: <span>${PRICE}</span></p>
+    <p>Precio más alto del día:: <span>${HIGHDAY}</span></p>
+    <p>Precio más bajo del día: <span>${LOWDAY}</span></p>
+    <p>Variación últimas 24 horas: <span>${CHANGEPCT24HOUR}%</span></p>
+    <p>Última Actualización: <span>${LASTUPDATE}</span></p>
+    `;
+    containerAnswer.appendChild(answer);
+}
+
+function showError(mensage){
+    const error = document.createElement('p');
+    error.classList.add("error");
+    error.textContent = mensage;
+    formContainer.appendChild(error);
+    setTimeout(() => error.remove(), 3000);
+}
+
+function getValue(e){
+    objBusqueda[e.target.name] = e.target.value; 
+}
+
+function consultarCriptos(){
+    const url = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD';
+    
+    fetch(url)
+        .then(respuesta => respuesta.json())
+        .then(respuestaJson => {
+            selectCriptos(respuestaJson.Data);
+            //console.log(respuestaJson.Data);
+        })
+        .catch(error => console.log(error));
+}
+
+function selectCriptos(criptos){
+    criptos.forEach(cripto => {
+        const {FullName, Name} = cripto.CoinInfo;
+        const option = document.createElement("option");
+        option.value = Name;
+        option.textContent = FullName;
+        criptomoneda.appendChild(option);
+    });
+}
+
+function clearHTML(){
+    containerAnswer.innerHTML = '';
+}
+
 
 
 //const local = localStorage.getItem("themeuser");

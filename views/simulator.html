@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="shortcut icon"  href="../image/exchange.ico">
-    
+    <link rel="stylesheet" href="../sweetalert/sweetalert2.min.css">
     
     <title>Black Rhyno-Simulador</title>
 
@@ -50,45 +50,82 @@
         </header>
         
         <main>
-            <p class="select">Selecciona la moneda a cambiar</p>    
             <span id="moon1"><i id="moon" class="fa-solid fa-moon moonicon" ></i></span>
             <span id="sun1" class="desaparecer"><i  class="fa-solid fa-sun sun sunicoon "></i></span>
-            <form class="form">
+            
+            <section class="main-section">
+                <h2 class="cotizadorCripto">Cotizador de Criptomonedas</h2>
+                <div class="container">
+                    <div class="image-side"></div>
+                    <div class="form-side">
+                        <form action="" id="form-search">
+                            <select id="moneda" name="moneda">
+                                <option value="">Elige tu moneda</option>
+                                <option value="USD">Dolar Estadounidense</option>
+                                <option value="ARS">Peso Argentino</option>
+                                <option value="GBP">Libras</option>
+                                <option value="EUR">Euros</option>
+                            </select>
+            
+                            <select id="criptomonedas" name="criptomoneda">
+                                <option value="" >Elige tu criptomoneda</option>
+                            </select>
+            
+                            <input class="" type="submit" value="Cotizar" />
+                            <div class="container-answer"></div>
+                            <!-- <div class="display-info">
+                                <p class="main-price">Precio: <span>$433.33</span></p>
+                                <p>Precio más alto del día:: <span>$433.33</span></p>
+                                <p>Precio más bajo del día: <span>$433.33</span></p>
+                                <p>Variación últimas 24 horas: <span>$433.33</span></p>
+                                <p>Última Actualización: <span>$433.33</span></p>
+                            </div> -->
+                        </form>
+                    </div>
+                </div>
+            </section>
+            
+            <p class="select">Selecciona la divisa a cambiar</p>    
+            <form class="form_">
                 <div id="forminput" class="forminput">
                     <div id="formone" class="formone">
-                        <input class="one" type="radio" name="cambio" id="uno">Peso($)/Dólar(U$D)
+                        <input class="one" type="radio" name="cambio" id="uno">($)Ar$ a (U$D)Dólar
                     </div>
                     <div id="formtwo" class="formtwo">
-                        <input class="two" type="radio" name="cambio" id="dos">Peso($)/Euro(EU)
+                        <input class="two" type="radio" name="cambio" id="dos">($)Ar$ a Euro(EU)
                     </div>
                     <div id="formthree" class="formthree">
-                        <input class="three"  type="radio" name="cambio" id="tres">Dólar(U$D)/Peso($)
+                        <input class="three"  type="radio" name="cambio" id="tres">(U$D)Dólar a ($)Ar$
                     </div>
                     <div id="formfour" class="formfour">
-                        <input class="four" type="radio" name="cambio" id="cuatro">Euro(EU)/Peso($)
+                        <input class="four" type="radio" name="cambio" id="cuatro">Euro(EU) a ($)Ar$
                     </div>
                     <div id="formfive" class="formfive">
-                        <input class="five" type="radio" name="cambio" id="cinco">Dólar(U$D)/Bitcoin(BTC)
+                        <input class="five" type="radio" name="cambio" id="cinco">(U$D)Dólar a Euro(EU)
                     </div>
                     <div id="formsix" class="formsix">
-                        <input class="six" type="radio" name="cambio" id="seis">Peso($)/Bitcoin(BTC)
+                        <input class="six" type="radio" name="cambio" id="seis">Euro(EU) a (U$D)Dólar
                     </div>
                     <div id="formseven" class="formseven">
-                        <input class="seven" type="radio" name="cambio" id="siete">Bitcoin(BTC)/Dólar(U$D)
+                        <input class="seven" type="radio" name="cambio" id="siete">($)Ar$ a CNY()
                     </div>
                     <div id="formeigth" class="formeigth">
-                        <input class="eigth" type="radio" name="cambio" id="ocho">Bitcoin(BTC)/Peso($)
-                    </div>    
+                        <input class="eigth" type="radio" name="cambio" id="ocho">CNY()  a ($)Ar$
+                    </div> 
+                
+                
                 </div>
+                
                 <div class="enter">
-                    <p class="amount">Ingrese el monto</p>
+                    <p id="amount" class="amount">Ingrese el monto</p>
                     <input type="number" id="valor" min="1" max="100000" class="cotizar">
-                    <input type="button" id="cotizador" value="cotizar" class="cotizar" >
+                    <input type="button" id="cotizador" value="cotizar" class="cotizar1" >
                 </div>    
                 <div>
                     <h1 id="resultado1" class="result">Resultado: $0.00</h1>
                 </div>
             </form>
+
             <div data-aos="fade-up">
                 <div id="info">
                     <input type="button" id="btn" value="¡Click para mas Información!">
@@ -130,6 +167,9 @@
             </div>
         </footer>
     </div>
+
+    <!-- script sweetalert.js -->
+    <script src="../sweetalert/sweetalert2.min.js"></script>
 
         <!-- scipt index.js -->
     <script src="../logics.js/simulator.js"></script> 

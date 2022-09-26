@@ -49,3 +49,35 @@ if(localStorage.getItem("themeuser") === "true"){
 }else {
     container.classList.remove("lunar",);
 }
+
+let consigna = null;
+let prueba = Swal.fire({
+    title: 'No te olvides de visitar nuestro generador QR'
+    ,
+    showClass: {
+    popup: 'animate__animated animate__fadeInDown'
+    },
+    hideClass: {
+    popup: 'animate__animated animate__fadeOutUp'
+    }
+});
+consigna ?? prueba;
+
+let prueba1 = [10,20,30]
+let prueba2 = [30,40,50]
+let prueba3 = ([...prueba1,...prueba2]);
+console.log(prueba3);
+
+let objetoprueba = {
+    user: "pepe",
+    id: 1
+}
+let {user,id} = objetoprueba
+console.log(user);
+console.log(id);
+
+let objetoprueba1 ={
+    ...objetoprueba,
+    clase:1
+};
+console.log(objetoprueba1);
