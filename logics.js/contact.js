@@ -51,16 +51,41 @@ if(localStorage.getItem("themeuser") === "true"){
 }
 
 let consigna = null;
+// let prueba = Swal.fire({
+//     title: 'No te olvides de visitar nuestro generador QR'
+//     ,
+//     showClass: {
+//     popup: 'animate__animated animate__fadeInDown'
+//     },
+//     hideClass: {
+//     popup: 'animate__animated animate__fadeOutUp'
+//     }
+// });
 let prueba = Swal.fire({
-    title: 'No te olvides de visitar nuestro generador QR'
-    ,
-    showClass: {
-    popup: 'animate__animated animate__fadeInDown'
-    },
-    hideClass: {
-    popup: 'animate__animated animate__fadeOutUp'
-    }
-});
+    title: '<strong>No te olvides de visitar nuestro generador QR de web page</strong>',
+    icon: 'info',
+    /*imageUrl: '../image/imagefooter.jpg',
+    imageWidth: 400,
+    imageHeight: 200,
+    imageAlt: 'Imagen publicidad QR',*/
+    html:
+        'Ingresa a este </b> ' +
+        '<a href="../index.html#1">links</a> ' +
+        'para probarlo',
+    showCloseButton: true,
+    showCancelButton: true,
+    focusConfirm: false,
+    confirmButtonText:
+        '<a class="genialbotonsweet" href="../index.html#1"> <i class="fa fa-thumbs-up"></i> Genial!</a> '  ,
+    confirmButtonAriaLabel: 'Thumbs up, great!',
+    cancelButtonText:
+        '<i class="fa fa-thumbs-down"></i>',
+    cancelButtonAriaLabel: 'Thumbs down'
+})
+
+
+
+
 consigna ?? prueba;
 
 let prueba1 = [10,20,30]
