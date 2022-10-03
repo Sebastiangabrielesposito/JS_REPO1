@@ -1,11 +1,3 @@
-// const opcion1 = "1.Peso ($)/Dólar(U$D)";
-// const opcion2 = "2.Peso($)/Euro(EU)";
-// const opcion3 = "3.Dólar(U$D)/Peso($)";
-// const opcion4 = "4.Euro(EU)/Peso($)";
-// const opcion5 = "5.Dólar(U$D)/Bitcoin(BTC)"
-// const opcion6 = "6.Peso($)/Bitcoin(BTC)"
-// const opcion7 = "7.Bitcoin(BTC)/Dólar(U$D)"
-// const opcion8 = "8.Bitcoin(BTC)/Peso($)"
 var btc = 20000;
 var methods =["Mercado pago", "UALA"]
 let operation;
@@ -16,38 +8,204 @@ let question2;
 var typecard;
 var typecard1;
 var other;
-// methods.push("Lemon cash");
-
-// let suscription = [{
-//     level: "Init",
-//     price: 25
-// },
-// {
-//     level: "Medium",
-//     price: 50
-
-// }];
-
-// let expert = {
-//     level:"Expert",
-//     price: 100
-// };
-// //Métodos
-// suscription.push(expert);
-// console.log("Se encuentra Lemon cash en lista methods?:  " + methods.includes("Lemon cash"));
-// console.log("Hay alguna suscripción de valor U$D 101?: " + suscription.some(s => s.price > 100));
-// console.log(suscription.filter(item => item.level === "Medium" && item.price < 55));
-// console.log(suscription.filter(item => item.price > 20));
-// console.log(suscription.find(su => su.level === "Init"));
-// console.log(methods.find(method => method === "UALA"));
-// console.log(suscription.map(item => item.level));
-//fin métodos
-
 //alert("BIENVENIDO A BLACK RHYNO EXCHANGE")
 
+//Inicio moddark()
+const container = document.getElementById("container");
+const moon = document.getElementById("moon");
+let moon1 = document.getElementById("moon1");
+let sun1 = document.getElementById("sun1");
+let forminput = document.getElementById("forminput");
+let formone = document.getElementById("formone");
+let formtwo = document.getElementById("formtwo");
+let formthree = document.getElementById("formthree");
+let formfour = document.getElementById("formfour");
+let formfive = document.getElementById("formfive");
+let formsix = document.getElementById("formsix");
+let formseven = document.getElementById("formseven");
+let formeigth = document.getElementById("formeigth");
+let amount = document.getElementById("amount");
+
+function moddark1 (){
+    if(forminput.style.color != "white"){
+        forminput.style.color = "white";
+        formone.style.color = "white";
+        formtwo.style.color = "white";
+        formthree.style.color = "white";
+        formfour.style.color = "white";
+        formfive.style.color = "white";
+        formsix.style.color = "white";
+        formseven.style.color = "white";
+        formeigth.style.color = "white";
+        container.classList.add("lunar",);
+        sun1.classList.remove("desaparecer");
+        moon1.classList.add("desaparecer");
+        paragrap.style.color = "white";
+        amount.style.color = "white";
+        //forminput.style.background = "azure";
+        //moon1.style.color = "white";
+    }else {
+        forminput.style.color = "#17265F";
+        container.classList.remove("lunar");
+        sun1.classList.add("desaparecer");
+        moon1.classList.remove("desaparecer");
+        moon1.style.color = "rgb(5, 5, 53)";
+        formone.style.color = "#17265F";
+        formtwo.style.color = "#17265F";
+        formthree.style.color = "#17265F";
+        formfour.style.color = "#17265F";
+        formfive.style.color = "#17265F";
+        formsix.style.color = "#17265F";
+        formseven.style.color = "#17265F";
+        formeigth.style.color = "#17265F";
+        paragrap.style.color = "#060945";
+        amount.style.color = "rgb(5, 5, 53)";
+    }
+}    
+
+moon1.addEventListener("click", (e) => {
+    moddark1();
+    if(container.classList.contains("lunar")){
+        localStorage.setItem("themeuser","true");
+    }else {
+        localStorage.setItem("themeuser","false");
+    }
+    
+});
+sun1.addEventListener("click", (e) => {
+    moddark1();
+    if(container.classList.contains("lunar")){
+        localStorage.setItem("themeuser","true");
+    }else {
+        localStorage.setItem("themeuser","false");
+    }
+    
+});
 
 
-//inicio simulador de conversor
+//Inicio Localstorage
+
+if(localStorage.getItem("themeuser") === "true"){
+    container.classList.add("lunar",);
+    forminput.style.color = "white";
+    formone.style.color = "white";
+    formtwo.style.color = "white";
+    formthree.style.color = "white";
+    formfour.style.color = "white";
+    formfive.style.color = "white";
+    formsix.style.color = "white";
+    formseven.style.color = "white";
+    formeigth.style.color = "white";
+    container.classList.add("lunar",);
+    amount.style.color = "white"
+    sun1.classList.remove("desaparecer");
+    moon1.classList.add("desaparecer");
+    paragrap.style.color = "white";
+}else {
+    container.classList.remove("lunar",);
+}
+
+
+//Inicio conversor de criptomonedas
+
+const form = document.querySelector("#form-search");
+const moneda = document.querySelector("#moneda");
+const criptomoneda = document.querySelector("#criptomonedas");
+const formContainer = document.querySelector(".form-side");
+const containerAnswer = document.querySelector(".container-answer");
+
+const objBusqueda = {
+    moneda: '',
+    criptomoneda: ''
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    consultarCriptos();
+
+    form.addEventListener('submit', submitForm);
+    moneda.addEventListener('change', getValue);
+    criptomoneda.addEventListener('change', getValue);
+})
+
+function submitForm(e){
+    e.preventDefault();
+    const {moneda, criptomoneda} = objBusqueda;
+    if (moneda === '' || criptomoneda === '') {
+        showError('Seleccione ambas monedas...');
+        return;
+    }
+    consultarAPI(moneda, criptomoneda);
+    //console.log(moneda);
+    //console.log(criptomoneda);
+}
+
+function consultarAPI(moneda, criptomoneda){
+    const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${criptomoneda}&tsyms=${moneda}`;
+    fetch(url)
+        .then(resultado => resultado.json())
+        .then(resultadoJson => {
+            mostrarCotizacion(resultadoJson.DISPLAY[criptomoneda][moneda]);
+            //console.log(resultadoJson.DISPLAY[criptomoneda][moneda]);
+        })
+        .catch(error => console.log(error));
+}
+
+function mostrarCotizacion(data){
+    clearHTML();
+    const {PRICE, HIGHDAY, LOWDAY, CHANGEPCT24HOUR, LASTUPDATE} = data;
+    const answer = document.createElement('div');
+    answer.classList.add('display-info');
+    answer.innerHTML = `
+    <p class="main-price">Precio: <span>${PRICE}</span></p>
+    <p>Precio más alto del día:: <span>${HIGHDAY}</span></p>
+    <p>Precio más bajo del día: <span>${LOWDAY}</span></p>
+    <p>Variación últimas 24 horas: <span>${CHANGEPCT24HOUR}%</span></p>
+    <p>Última Actualización: <span>${LASTUPDATE}</span></p>
+    `;
+    containerAnswer.appendChild(answer);
+}
+
+function showError(mensage){
+    const error = document.createElement('p');
+    error.classList.add("error");
+    error.textContent = mensage;
+    formContainer.appendChild(error);
+    setTimeout(() => error.remove(), 3000);
+}
+
+function getValue(e){
+    objBusqueda[e.target.name] = e.target.value; 
+}
+
+function consultarCriptos(){
+    const url = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD';
+    
+    fetch(url)
+        .then(respuesta => respuesta.json())
+        .then(respuestaJson => {
+            selectCriptos(respuestaJson.Data);
+            //console.log(respuestaJson.Data);
+        })
+        .catch(error => console.log(error));
+}
+
+function selectCriptos(criptos){
+    criptos.forEach(cripto => {
+        const {FullName, Name} = cripto.CoinInfo;
+        const option = document.createElement("option");
+        option.value = Name;
+        option.textContent = FullName;
+        criptomoneda.appendChild(option);
+    });
+}
+
+function clearHTML(){
+    containerAnswer.innerHTML = '';
+}
+
+
+
+//inicio simulador de conversión
 function convertir() {
     let valore = parseInt(document.getElementById("valor").value);
     var dolar = 300;
@@ -178,6 +336,8 @@ cotizar.addEventListener("click", () => convertir() + convertirbtc());
 
 
 
+
+
 const info = document.getElementById("info")
 const btn = document.getElementById("btn")
 const paragrap = document.getElementById("paragraph")
@@ -189,202 +349,40 @@ btn.addEventListener("click", (e) => {
 });
 
 
+// const opcion1 = "1.Peso ($)/Dólar(U$D)";
+// const opcion2 = "2.Peso($)/Euro(EU)";
+// const opcion3 = "3.Dólar(U$D)/Peso($)";
+// const opcion4 = "4.Euro(EU)/Peso($)";
+// const opcion5 = "5.Dólar(U$D)/Bitcoin(BTC)"
+// const opcion6 = "6.Peso($)/Bitcoin(BTC)"
+// const opcion7 = "7.Bitcoin(BTC)/Dólar(U$D)"
+// const opcion8 = "8.Bitcoin(BTC)/Peso($)"
+// methods.push("Lemon cash");
 
+// let suscription = [{
+//     level: "Init",
+//     price: 25
+// },
+// {
+//     level: "Medium",
+//     price: 50
 
-const container = document.getElementById("container");
-const moon = document.getElementById("moon");
-let moon1 = document.getElementById("moon1");
-let sun1 = document.getElementById("sun1");
-let forminput = document.getElementById("forminput");
-let formone = document.getElementById("formone");
-let formtwo = document.getElementById("formtwo");
-let formthree = document.getElementById("formthree");
-let formfour = document.getElementById("formfour");
-let formfive = document.getElementById("formfive");
-let formsix = document.getElementById("formsix");
-let formseven = document.getElementById("formseven");
-let formeigth = document.getElementById("formeigth");
-let amount = document.getElementById("amount");
+// }];
 
-function moddark1 (){
-    if(forminput.style.color != "white"){
-        forminput.style.color = "white";
-        formone.style.color = "white";
-        formtwo.style.color = "white";
-        formthree.style.color = "white";
-        formfour.style.color = "white";
-        formfive.style.color = "white";
-        formsix.style.color = "white";
-        formseven.style.color = "white";
-        formeigth.style.color = "white";
-        container.classList.add("lunar",);
-        sun1.classList.remove("desaparecer");
-        moon1.classList.add("desaparecer");
-        paragrap.style.color = "white";
-        amount.style.color = "white";
-        //forminput.style.background = "azure";
-        //moon1.style.color = "white";
-    }else {
-        forminput.style.color = "#17265F";
-        container.classList.remove("lunar");
-        sun1.classList.add("desaparecer");
-        moon1.classList.remove("desaparecer");
-        moon1.style.color = "rgb(5, 5, 53)";
-        formone.style.color = "#17265F";
-        formtwo.style.color = "#17265F";
-        formthree.style.color = "#17265F";
-        formfour.style.color = "#17265F";
-        formfive.style.color = "#17265F";
-        formsix.style.color = "#17265F";
-        formseven.style.color = "#17265F";
-        formeigth.style.color = "#17265F";
-        paragrap.style.color = "#060945";
-        amount.style.color = "rgb(5, 5, 53)";
-    }
-}    
-
-moon1.addEventListener("click", (e) => {
-    moddark1();
-    if(container.classList.contains("lunar")){
-        localStorage.setItem("themeuser","true");
-    }else {
-        localStorage.setItem("themeuser","false");
-    }
-    
-});
-sun1.addEventListener("click", (e) => {
-    moddark1();
-    if(container.classList.contains("lunar")){
-        localStorage.setItem("themeuser","true");
-    }else {
-        localStorage.setItem("themeuser","false");
-    }
-    
-});
-
-
-
-if(localStorage.getItem("themeuser") === "true"){
-    container.classList.add("lunar",);
-    forminput.style.color = "white";
-    formone.style.color = "white";
-    formtwo.style.color = "white";
-    formthree.style.color = "white";
-    formfour.style.color = "white";
-    formfive.style.color = "white";
-    formsix.style.color = "white";
-    formseven.style.color = "white";
-    formeigth.style.color = "white";
-    container.classList.add("lunar",);
-    amount.style.color = "white"
-    sun1.classList.remove("desaparecer");
-    moon1.classList.add("desaparecer");
-    paragrap.style.color = "white";
-}else {
-    container.classList.remove("lunar",);
-}
-
-
-const form = document.querySelector("#form-search");
-const moneda = document.querySelector("#moneda");
-const criptomoneda = document.querySelector("#criptomonedas");
-const formContainer = document.querySelector(".form-side");
-const containerAnswer = document.querySelector(".container-answer");
-
-const objBusqueda = {
-    moneda: '',
-    criptomoneda: ''
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    consultarCriptos();
-
-    form.addEventListener('submit', submitForm);
-    moneda.addEventListener('change', getValue);
-    criptomoneda.addEventListener('change', getValue);
-})
-
-function submitForm(e){
-    e.preventDefault();
-    const {moneda, criptomoneda} = objBusqueda;
-    if (moneda === '' || criptomoneda === '') {
-        showError('Seleccione ambas monedas...');
-        return;
-    }
-    consultarAPI(moneda, criptomoneda);
-    //console.log(moneda);
-    //console.log(criptomoneda);
-}
-
-function consultarAPI(moneda, criptomoneda){
-    const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${criptomoneda}&tsyms=${moneda}`;
-    fetch(url)
-        .then(resultado => resultado.json())
-        .then(resultadoJson => {
-            mostrarCotizacion(resultadoJson.DISPLAY[criptomoneda][moneda]);
-            //console.log(resultadoJson.DISPLAY[criptomoneda][moneda]);
-        })
-        .catch(error => console.log(error));
-}
-
-function mostrarCotizacion(data){
-    clearHTML();
-    const {PRICE, HIGHDAY, LOWDAY, CHANGEPCT24HOUR, LASTUPDATE} = data;
-    const answer = document.createElement('div');
-    answer.classList.add('display-info');
-    answer.innerHTML = `
-    <p class="main-price">Precio: <span>${PRICE}</span></p>
-    <p>Precio más alto del día:: <span>${HIGHDAY}</span></p>
-    <p>Precio más bajo del día: <span>${LOWDAY}</span></p>
-    <p>Variación últimas 24 horas: <span>${CHANGEPCT24HOUR}%</span></p>
-    <p>Última Actualización: <span>${LASTUPDATE}</span></p>
-    `;
-    containerAnswer.appendChild(answer);
-}
-
-function showError(mensage){
-    const error = document.createElement('p');
-    error.classList.add("error");
-    error.textContent = mensage;
-    formContainer.appendChild(error);
-    setTimeout(() => error.remove(), 3000);
-}
-
-function getValue(e){
-    objBusqueda[e.target.name] = e.target.value; 
-}
-
-function consultarCriptos(){
-    const url = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD';
-    
-    fetch(url)
-        .then(respuesta => respuesta.json())
-        .then(respuestaJson => {
-            selectCriptos(respuestaJson.Data);
-            //console.log(respuestaJson.Data);
-        })
-        .catch(error => console.log(error));
-}
-
-function selectCriptos(criptos){
-    criptos.forEach(cripto => {
-        const {FullName, Name} = cripto.CoinInfo;
-        const option = document.createElement("option");
-        option.value = Name;
-        option.textContent = FullName;
-        criptomoneda.appendChild(option);
-    });
-}
-
-function clearHTML(){
-    containerAnswer.innerHTML = '';
-}
-
-
-
-//const local = localStorage.getItem("themeuser");
-
-
+// let expert = {
+//     level:"Expert",
+//     price: 100
+// };
+// //Métodos
+// suscription.push(expert);
+// console.log("Se encuentra Lemon cash en lista methods?:  " + methods.includes("Lemon cash"));
+// console.log("Hay alguna suscripción de valor U$D 101?: " + suscription.some(s => s.price > 100));
+// console.log(suscription.filter(item => item.level === "Medium" && item.price < 55));
+// console.log(suscription.filter(item => item.price > 20));
+// console.log(suscription.find(su => su.level === "Init"));
+// console.log(methods.find(method => method === "UALA"));
+// console.log(suscription.map(item => item.level));
+//fin métodos
 
 //Inicio de login
 // function log(){

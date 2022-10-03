@@ -1,3 +1,33 @@
+//Inicio sweet alert
+
+let prueba = Swal.fire({
+    title: '<strong>No te olvides de visitar nuestro generador QR de web page</strong>',
+    icon: 'info',
+    /*imageUrl: '../image/imagefooter.jpg',
+    imageWidth: 400,
+    imageHeight: 200,
+    imageAlt: 'Imagen publicidad QR',*/
+    html:
+        'Ingresa a este </b> ' +
+        '<a href="../index.html#1">links</a> ' +
+        'para probarlo',
+    showCloseButton: true,
+    showCancelButton: true,
+    focusConfirm: false,
+    confirmButtonText:
+        '<a class="genialbotonsweet" href="../index.html#1"> <i class="fa fa-thumbs-up"></i> Genial!</a> '  ,
+    confirmButtonAriaLabel: 'Thumbs up, great!',
+    cancelButtonText:
+        '<i class="fa fa-thumbs-down"></i>',
+    cancelButtonAriaLabel: 'Thumbs down'
+})
+
+consigna ?? prueba;
+
+
+
+// Inicio Moddark()
+
 const container = document.getElementById("container");
 const moon = document.getElementById("moon");
 let moon1 = document.getElementById("moon1");
@@ -42,6 +72,8 @@ sun1.addEventListener("click", (e) => {
     }
 });
 
+//Inicio Localstorage
+
 if(localStorage.getItem("themeuser") === "true"){
     container.classList.add("lunar",);
     main_contacto.style.color = "white";
@@ -52,86 +84,9 @@ if(localStorage.getItem("themeuser") === "true"){
     container.classList.remove("lunar",);
 }
 
-// let consigna = null;
-// let prueba = Swal.fire({
-//     title: 'No te olvides de visitar nuestro generador QR'
-//     ,
-//     showClass: {
-//     popup: 'animate__animated animate__fadeInDown'
-//     },
-//     hideClass: {
-//     popup: 'animate__animated animate__fadeOutUp'
-//     }
-// });
-// let prueba = Swal.fire({
-//     title: '<strong>No te olvides de visitar nuestro generador QR de web page</strong>',
-//     icon: 'info',
-//     /*imageUrl: '../image/imagefooter.jpg',
-//     imageWidth: 400,
-//     imageHeight: 200,
-//     imageAlt: 'Imagen publicidad QR',*/
-//     html:
-//         'Ingresa a este </b> ' +
-//         '<a href="../index.html#1">links</a> ' +
-//         'para probarlo',
-//     showCloseButton: true,
-//     showCancelButton: true,
-//     focusConfirm: false,
-//     confirmButtonText:
-//         '<a class="genialbotonsweet" href="../index.html#1"> <i class="fa fa-thumbs-up"></i> Genial!</a> '  ,
-//     confirmButtonAriaLabel: 'Thumbs up, great!',
-//     cancelButtonText:
-//         '<i class="fa fa-thumbs-down"></i>',
-//     cancelButtonAriaLabel: 'Thumbs down'
-// })
-
-// consigna ?? prueba;
-
-// let prueba1 = [10,20,30]
-// let prueba2 = [30,40,50]
-// let prueba3 = ([...prueba1,...prueba2]);
-// console.log(prueba3);
-
-// let objetoprueba = {
-//     user: "pepe",
-//     id: 1
-// }
-// let {user,id} = objetoprueba
-// console.log(user);
-// console.log(id);
-
-// let objetoprueba1 ={
-//     ...objetoprueba,
-//     clase:1
-// };
-// console.log(objetoprueba1);
 
 
-const $tiempo = document.querySelector(".tiempo"),
-$fecha = document.querySelector(".fecha");
-const $reloj = document.querySelector(".reloj");
-
-function digitalClock() {
-    let f = new Date(),
-    dia = f.getDate(),
-    mes = f.getMonth() + 1,
-    anio = f.getFullYear(),
-    diasemana= f.getDay();
-
-    dia = ("0" + dia).slice(-2);
-    mes = ("0" + mes).slice(-2);
-
-    let timeString = f.toLocaleTimeString();
-    $tiempo.innerHTML = timeString;
-
-    let semana =["SUN","MON","TUE","WED","THU","FRI","SAT"];
-    let showsemana = (semana[diasemana]);
-
-    $fecha.innerHTML = `${anio}-${mes}-${dia} ${showsemana}`;
-}
-setInterval(() => {
-    digitalClock();
-},1000)
+//Inicio formulario contacto
 
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
@@ -248,3 +203,53 @@ formulario.addEventListener('submit', (e) => {
         })
     }	
 });
+
+
+
+//Inicio Reloj
+const $tiempo = document.querySelector(".tiempo"),
+$fecha = document.querySelector(".fecha");
+const $reloj = document.querySelector(".reloj");
+
+function digitalClock() {
+    let f = new Date(),
+    dia = f.getDate(),
+    mes = f.getMonth() + 1,
+    anio = f.getFullYear(),
+    diasemana= f.getDay();
+
+    dia = ("0" + dia).slice(-2);
+    mes = ("0" + mes).slice(-2);
+
+    let timeString = f.toLocaleTimeString();
+    $tiempo.innerHTML = timeString;
+
+    let semana =["SUN","MON","TUE","WED","THU","FRI","SAT"];
+    let showsemana = (semana[diasemana]);
+
+    $fecha.innerHTML = `${anio}-${mes}-${dia} ${showsemana}`;
+}
+setInterval(() => {
+    digitalClock();
+},1000)
+
+
+
+// let prueba1 = [10,20,30]
+// let prueba2 = [30,40,50]
+// let prueba3 = ([...prueba1,...prueba2]);
+// console.log(prueba3);
+
+// let objetoprueba = {
+//     user: "pepe",
+//     id: 1
+// }
+// let {user,id} = objetoprueba
+// console.log(user);
+// console.log(id);
+
+// let objetoprueba1 ={
+//     ...objetoprueba,
+//     clase:1
+// };
+// console.log(objetoprueba1);

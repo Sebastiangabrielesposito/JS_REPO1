@@ -8,7 +8,7 @@ const Mobile_validation = document.getElementById("Mobile_validation")
 const moonicon = document.getElementsByClassName("moonicon")
 let main = document.getElementById("main")
 
-
+//Inicio Moddark()
 let change1 = document.createElement("span");
 let change = () => {
     change1.style.color = "white";
@@ -53,6 +53,8 @@ change1.addEventListener("click", (e) => {
     }
 });
 
+//Inicio Localstorage
+
 if(localStorage.getItem("themeuser") === "true"){
     container.classList.add("lunar",);
     grupo__usuario.style.color = "white", username;
@@ -68,7 +70,8 @@ if(localStorage.getItem("themeuser") === "true"){
     container.classList.remove("lunar",);
 }
 
-    
+//Inicio formulario index
+
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 const go__To = document.getElementById("go__To");
@@ -176,6 +179,8 @@ formulario.addEventListener('submit', (e) => {
 });
 
 
+//Inicio Creador QR
+
 let wrapper = document.querySelector(".wrapper"),
 qrinput =wrapper.querySelector(".formG .inputg"),
 generateBtn = wrapper.querySelector(".formG .btn11"),
@@ -202,8 +207,8 @@ generateBtn.addEventListener("click", () => {
 
 
 
+//Inicio reloj
 
-    
 const $tiempo = document.querySelector(".tiempo"),
 $fecha = document.querySelector(".fecha");
 const $reloj = document.querySelector(".reloj");
