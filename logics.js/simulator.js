@@ -47,65 +47,134 @@ var other;
 
 
 
-
 //inicio simulador de conversor
 function convertir() {
-    var valore = parseInt(document.getElementById("valor").value);
-    var resultado = 0
+    let valore = parseInt(document.getElementById("valor").value);
     var dolar = 300;
-    var euro = 310;
-    let yuan = 20.41;
-    const Result = (moneda) => {
-        document.getElementById("resultado1").innerHTML=resultado.toFixed(2) + moneda;
+    let resultado = 0
+    let euro = 310;
+    
+    
+    if(!valore){
+        errorConvertirdivisa.classList.remove("desaparecer")
+        errorConvertirdivisa.classList.add("aparecer")  
     }
+    setTimeout(() => {
+        document.getElementById("errorConvertirdivisa").classList.add('desaparecer');
+    }, 5000);
+    
+
+    
+    const Result = (moneda) => {
+        let errorConvertirdivisa = document.getElementById("errorConvertirdivisa")
+        let resultado1 = document.getElementById("resultado1");
+        
+        if(resultado  >= 0.01) {
+            document.getElementById("resultado1").innerHTML= moneda + resultado.toFixed(2);
+            errorConvertirdivisa.classList.add("desaparecer");
+            errorConvertirdivisa.classList.remove("aparecer"); 
+            resultado1.classList.add("aparecer");
+            resultado1.classList.remove("desaparecer");
+            
+            fullenter.addEventListener("keyup", () => {
+                if(!valore.value) {
+                    console.log(valore);
+                    resultado1.classList.add("desaparecer");
+                    resultado1.classList.remove("aparecer");
+                };    
+            });
+        }    
+        else{
+            // document.getElementById("resultado1").innerHTML= "Resultado: $0.00"
+            errorConvertirdivisa.classList.remove("desaparecer");
+            errorConvertirdivisa.classList.add("aparecer");  
+            resultado1.classList.remove("aparecer");
+            resultado1.classList.add("desaparecer");
+        }
+        
+        setTimeout(() => {
+            document.getElementById("errorConvertirdivisa").classList.add('desaparecer');
+        }, 5000);  
+
+    }; 
     
     if(document.getElementById("uno").checked) {
         resultado = valore / dolar;
-        Result(" (USD)Dolares")
+        Result("(USD) ")
     }
     else if (document.getElementById("dos").checked) {
         resultado = valore / euro;
-        Result(" (EU)Euros");
+        Result("(EU) ");
     }
     else if (document.getElementById("tres").checked) {
         resultado = dolar * valore;
-        Result("  $Argentinos");   
+        Result("($) ");   
     }
     else if (document.getElementById("cuatro").checked) {
         resultado = euro *  valore;
-        Result("  $Argentinos");
+        Result("($) ");
     } 
     else if (document.getElementById("cinco").checked) {
         resultado = valore * 1.05 ;
-        Result(" (EU)Euros");
+        Result("(EU) ");
     }
     else if (document.getElementById("seis").checked) {
         resultado =  valore *  0.96 ;
-        Result(" (USD)Dolares");
+        Result("(USD) ");
     }    
 }
 
 
 function convertirbtc(){
     yuan = 20.41;
+    let resultado = 0
     var valore = parseInt(document.getElementById("valor").value);
+    console.log(valore);
     function Result (moneda){
-        document.getElementById("resultado1").innerHTML=resultado.toFixed(2) + moneda;
-    }
+        let errorConvertirdivisa = document.getElementById("errorConvertirdivisa")
+        let resultado1 = document.getElementById("resultado1");
+        let fullenter = document.getElementById("fullenter");
+        
+        if(resultado  >= 0.01) {
+            document.getElementById("resultado1").innerHTML= moneda + resultado.toFixed(2);
+            errorConvertirdivisa.classList.add("desaparecer");
+            errorConvertirdivisa.classList.remove("aparecer"); 
+            resultado1.classList.add("aparecer")
+            resultado1.classList.remove("desaparecer")
+            
+            fullenter.addEventListener("keyup", () => {
+                if(!valore.value) {
+                    console.log(valore);
+                    resultado1.classList.add("desaparecer");
+                    resultado1.classList.remove("aparecer");
+                };    
+            });
+        }
+        else{
+            // document.getElementById("resultado1").innerHTML= "Resultado: $0.00"
+            errorConvertirdivisa.classList.remove("desaparecer");
+            errorConvertirdivisa.classList.add("aparecer");  
+            resultado1.classList.remove("aparecer");
+            resultado1.classList.add("desaparecer");
+        }
+        setTimeout(() => {
+            document.getElementById("errorConvertirdivisa").classList.add('desaparecer');
+        }, 5000);
+        
 
+    };
     if(document.getElementById("siete").checked) {
         resultado = valore / yuan;
-        Result(" (CNY)Yuanes");
+        Result("(CNY) ");
     }
     
     if(document.getElementById("ocho").checked) {
         resultado = yuan * valore;
-        Result("  $Argentinos");    
+        Result("($) ");    
     } 
 }
 const cotizar = document.getElementById("cotizador");
 cotizar.addEventListener("click", () => convertir() + convertirbtc());
-
 
 
 

@@ -10,7 +10,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="shortcut icon"  href="../image/exchange.ico">
     <link rel="stylesheet" href="../sweetalert/sweetalert2.min.css">
-    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <title>Black Rhyno-Simulador</title>
 
 </head>
@@ -85,44 +86,65 @@
                 </div>
             </section>
             
+            <div class="containerfull">
+                <div class="container1">
+                    <img src="../image/imagecontact2.jpg" alt="" class="image1 img-fluid" >
+                    <div class="content1">
+                        <h3>Inversiones</h3>
+                        <p>En primer lugar debemos conocer qué es el “trading”. El término trading en mercados financieros se asocia a la inversión a corto plazo, pero existen importantes diferencias dependiendo de lo corto que sea ese plazo, puesto que podemos hacer trading buscando operaciones de muy pocos días, horas o incluso segundos (scalping), o hacer lo que se denomina Swing Trading, que busca estrategias para invertir a varios días o incluso semanas si el mercado acompaña. Las técnicas que se emplean, el tiempo de dedicación y el estrés emocional puede cambiar radicalmente si se opera en un plazo temporal u otro, es un tema de vital importancia.</p>
+                    </div>
+                    <div class="icons">
+                        <i title="Facebook" class='bx bxl-facebook'></i>
+                        <i title="Twitter" class='bx bxl-twitter' ></i>
+                        <i title="Instagram" class='bx bxl-instagram'></i>
+                        <i title="GIT HUB" class='bx bxl-github'></i>
+                        <i title="Linkedin" class='bx bxl-linkedin' ></i>
+                    </div>      
+                </div>
+            </div>
+                
+
             <p class="select">Selecciona la divisa a cambiar</p>    
             <form class="form_">
                 <div id="forminput" class="forminput">
-                    <div id="formone" class="formone">
-                        <input class="one" type="radio" name="cambio" id="uno">($)Ar$ a (U$D)Dólar
+                    <div id="formone" class="formone formclass">
+                        <input class="one formclass1" type="radio" name="cambio" id="uno">($)Ar$ a (U$D)Dólar
                     </div>
-                    <div id="formtwo" class="formtwo">
-                        <input class="two" type="radio" name="cambio" id="dos">($)Ar$ a Euro(EU)
+                    <div id="formtwo" class="formtwo formclass">
+                        <input class="two formclass1" type="radio" name="cambio" id="dos">($)Ar$ a Euro(EU)
                     </div>
-                    <div id="formthree" class="formthree">
-                        <input class="three"  type="radio" name="cambio" id="tres">(U$D)Dólar a ($)Ar$
+                    <div id="formthree" class="formthree formclass">
+                        <input class="three formclass1"  type="radio" name="cambio" id="tres">(U$D)Dólar a ($)Ar$
                     </div>
-                    <div id="formfour" class="formfour">
-                        <input class="four" type="radio" name="cambio" id="cuatro">Euro(EU) a ($)Ar$
+                    <div id="formfour" class="formfour formclass">
+                        <input class="four formclass1" type="radio" name="cambio" id="cuatro">Euro(EU) a ($)Ar$
                     </div>
-                    <div id="formfive" class="formfive">
-                        <input class="five" type="radio" name="cambio" id="cinco">(U$D)Dólar a Euro(EU)
+                    <div id="formfive" class="formfive formclass">
+                        <input class="five formclass1" type="radio" name="cambio" id="cinco">(U$D)Dólar a Euro(EU)
                     </div>
-                    <div id="formsix" class="formsix">
-                        <input class="six" type="radio" name="cambio" id="seis">Euro(EU) a (U$D)Dólar
+                    <div id="formsix" class="formsix formclass">
+                        <input class="six formclass1" type="radio" name="cambio" id="seis">Euro(EU) a (U$D)Dólar
                     </div>
-                    <div id="formseven" class="formseven">
-                        <input class="seven" type="radio" name="cambio" id="siete">($)Ar$ a CNY()
+                    <div id="formseven" class="formseven formclass">
+                        <input class="seven formclass1" type="radio" name="cambio" id="siete">($)Ar$ a CNY()
                     </div>
-                    <div id="formeigth" class="formeigth">
-                        <input class="eigth" type="radio" name="cambio" id="ocho">CNY()  a ($)Ar$
+                    <div id="formeigth" class="formeigth formclass">
+                        <input class="eigth formclass1" type="radio" name="cambio" id="ocho">CNY()  a ($)Ar$
                     </div> 
                 
                 
                 </div>
                 
-                <div class="enter">
-                    <p id="amount" class="amount">Ingrese el monto</p>
+                <div class="enter" id="fullenter">
+                    <p id="amount" class="amount amount1">Ingrese el monto</p>
                     <input type="number" id="valor" min="1" max="100000" class="cotizar">
                     <input type="button" id="cotizador" value="cotizar" class="cotizar1" >
                 </div>    
+                <div id="errorConvertirdivisa" class="formulario__mensaje1 desaparecer">
+                    <p><i class="fa-solid fa-triangle-exclamation"></i><b>Error:</b>  Ingresa un monto valido. </p>
+                </div>
                 <div>
-                    <h1 id="resultado1" class="result">Resultado: $0.00</h1>
+                    <h1 id="resultado1" class="result desaparecer">Resultado: $0.00</h1>
                 </div>
             </form>
 

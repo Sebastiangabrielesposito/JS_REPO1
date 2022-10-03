@@ -24,7 +24,8 @@ function moddark (){
         moon1.classList.add("desaparecer");
         change1.classList.remove("desaparecer")
         change1.classList.add("sun");
-        change1.classList.add("sunicoon")
+        change1.classList.add("sunicoon");
+        $reloj.style.color = "white";
         change();
     }else {
         grupo__usuario.style.color = "black";
@@ -34,6 +35,7 @@ function moddark (){
         moon1.classList.remove("desaparecer");
         moon1.style.color = "rgb(5, 5, 53)";
         change1.classList.add("desaparecer")
+        $reloj.style.color = "#0f3854";
     }
 }    
 
@@ -59,8 +61,9 @@ if(localStorage.getItem("themeuser") === "true"){
     moon1.classList.add("desaparecer");
     change1.classList.remove("desaparecer")
     change1.classList.add("sun");
-    change1.classList.add("sunicoon")
+    change1.classList.add("sunicoon");
     change();
+    // $reloj.style.color = "white";
 }else {
     container.classList.remove("lunar",);
 }
@@ -149,6 +152,10 @@ formulario.addEventListener('submit', (e) => {
 		});
 	} else {
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+        setTimeout(() => {
+			document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');
+		}, 3000);
+
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -190,5 +197,35 @@ generateBtn.addEventListener("click", () => {
 
     qrinput.addEventListener("keyup", () => {
         !qrinput.value && wrapper.classList.remove("active1");  
-    })
+    });
 
+
+
+
+
+    
+const $tiempo = document.querySelector(".tiempo"),
+$fecha = document.querySelector(".fecha");
+const $reloj = document.querySelector(".reloj");
+
+function digitalClock() {
+    let f = new Date(),
+    dia = f.getDate(),
+    mes = f.getMonth() + 1,
+    anio = f.getFullYear(),
+    diasemana= f.getDay();
+
+    dia = ("0" + dia).slice(-2);
+    mes = ("0" + mes).slice(-2);
+
+    let timeString = f.toLocaleTimeString();
+    $tiempo.innerHTML = timeString;
+
+    let semana =["SUN","MON","TUE","WED","THU","FRI","SAT"];
+    let showsemana = (semana[diasemana]);
+
+    $fecha.innerHTML = `${anio}-${mes}-${dia} ${showsemana}`;
+}
+setInterval(() => {
+    digitalClock();
+},1000)
