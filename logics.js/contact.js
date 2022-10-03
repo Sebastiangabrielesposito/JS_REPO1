@@ -21,6 +21,7 @@ let prueba = Swal.fire({
         '<i class="fa fa-thumbs-down"></i>',
     cancelButtonAriaLabel: 'Thumbs down'
 })
+let consigna;
 
 consigna ?? prueba;
 
@@ -155,7 +156,7 @@ formulario.addEventListener('submit', (e) => {
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 		setTimeout(() => {
 			document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
-		}, 5000);
+		}, 3000);
 
 		document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
 			document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');

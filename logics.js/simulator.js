@@ -10,6 +10,20 @@ var typecard1;
 var other;
 //alert("BIENVENIDO A BLACK RHYNO EXCHANGE")
 
+
+// localStorage.getItem("userInfo", userInfo);
+
+const userInfo =  JSON.parse(localStorage.getItem('userInfo'));
+
+if(localStorage.getItem('userInfo')){
+    const TitleUser = document.getElementById("TitleUser");
+    const tituloSimulator = document.createElement("h1");
+    const textNode = document.createTextNode(`Bienvenido ${userInfo.usuario}`);
+    tituloSimulator.append(textNode);
+
+    TitleUser.append(tituloSimulator);
+}
+
 //Inicio moddark()
 const container = document.getElementById("container");
 const moon = document.getElementById("moon");

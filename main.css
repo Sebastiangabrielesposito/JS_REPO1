@@ -1085,3 +1085,21 @@ input[type="submit"]:hover {
     text-decoration: none;
     color: #fff;
 }
+
+#TitleUser{
+    color: #fff;
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 600;
+}
+#TitleUser H1{
+    border-bottom: 3px solid gray;
+    margin: 0 300px;
+    /* background-color:rgba(189,189,189, .5);    */
+    background: rgb(4, 15, 36);
+    cursor: pointer;
+}#TitleUser h1:hover{
+    background-color: #05394e;
+    /* color: #055474; */
+}
+/* #55474 */

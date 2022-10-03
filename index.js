@@ -91,8 +91,7 @@ const validarFormulario = (e) => {
 			validarCampo(expresiones.usuario, e.target, 'usuario');
 		break;
 		case "password":
-			validarCampo(expresiones.password, e.target, 'password');
-			
+			validarCampo(expresiones.password, e.target, 'password');	
 		break;
 	}
 }
@@ -103,34 +102,48 @@ const validarCampo = (expresion, input, campo) => {
 		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
 		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
 		campos[campo] = true;
+        
 	} else {
-		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
+        document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
 		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
 		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
         campos[campo] = false;
-        
     }
 }
 
 
-
 inputs.forEach((input) => {
-	input.addEventListener('keyup', validarFormulario);
+    input.addEventListener('keyup', validarFormulario);
 	input.addEventListener('blur', validarFormulario);
 });
 
+
 formulario.addEventListener('submit', (e) => {
-	e.preventDefault();
-
-	
+    e.preventDefault();
+    
 	if(campos.usuario && campos.password){
-		formulario.reset();
+        const userInfo = {
+            usuario: usuario.value,
+            // password: password.value
+        }
+        localStorage.setItem("userInfo", JSON.stringify(userInfo));
+        // const userInfo = usuario.value
+        // localStorage.setItem('userInfo', userInfo);
+    }
+});
 
+formulario.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+	if(campos.usuario && campos.password){
+        
+        formulario.reset();
+        
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 		setTimeout(() => {
-			document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
+            document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
 		}, 5000);
-
+        
 		document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
 			document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');
             icono.classList.remove('formulario__grupo-correcto');
@@ -150,8 +163,7 @@ formulario.addEventListener('submit', (e) => {
                 icon: 'success',
                 title: 'Signed in successfully'
             })
-            // 	go__To.classList.add("aparecer");
-		// 	go__To.classList.remove("desaparecer");
+            
 		});
 	} else {
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
@@ -177,6 +189,7 @@ formulario.addEventListener('submit', (e) => {
         })
     }	
 });
+
 
 
 //Inicio Creador QR
