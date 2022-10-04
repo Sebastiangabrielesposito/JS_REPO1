@@ -27,6 +27,34 @@ consigna ?? prueba;
 
 
 
+//Inicio Reloj
+const $tiempo = document.querySelector(".tiempo"),
+$fecha = document.querySelector(".fecha");
+const $reloj = document.querySelector(".reloj");
+
+function digitalClock() {
+    let f = new Date(),
+    dia = f.getDate(),
+    mes = f.getMonth() + 1,
+    anio = f.getFullYear(),
+    diasemana= f.getDay();
+
+    dia = ("0" + dia).slice(-2);
+    mes = ("0" + mes).slice(-2);
+
+    let timeString = f.toLocaleTimeString();
+    $tiempo.innerHTML = timeString;
+
+    let semana =["SUN","MON","TUE","WED","THU","FRI","SAT"];
+    let showsemana = (semana[diasemana]);
+
+    $fecha.innerHTML = `${anio}-${mes}-${dia} ${showsemana}`;
+}
+setInterval(() => {
+    digitalClock();
+},1000)
+
+
 // Inicio Moddark()
 
 const container = document.getElementById("container");
@@ -44,7 +72,7 @@ function moddark2 (){
         sun1.classList.remove("desaparecer");
         moon1.classList.add("desaparecer");
         $reloj.style.color = "white";
-        //moon1.style.color = "white";
+        // moon1.style.color = "white";
     }else {
         main_contacto.style.color = "#17265F";
         container.classList.remove("lunar");
@@ -81,6 +109,7 @@ if(localStorage.getItem("themeuser") === "true"){
     nuestas_oficinas.style.color = "white";
     sun1.classList.remove("desaparecer");
     moon1.classList.add("desaparecer");
+    $reloj.style.color = "white";
 }else {
     container.classList.remove("lunar",);
 }
@@ -207,50 +236,3 @@ formulario.addEventListener('submit', (e) => {
 
 
 
-//Inicio Reloj
-const $tiempo = document.querySelector(".tiempo"),
-$fecha = document.querySelector(".fecha");
-const $reloj = document.querySelector(".reloj");
-
-function digitalClock() {
-    let f = new Date(),
-    dia = f.getDate(),
-    mes = f.getMonth() + 1,
-    anio = f.getFullYear(),
-    diasemana= f.getDay();
-
-    dia = ("0" + dia).slice(-2);
-    mes = ("0" + mes).slice(-2);
-
-    let timeString = f.toLocaleTimeString();
-    $tiempo.innerHTML = timeString;
-
-    let semana =["SUN","MON","TUE","WED","THU","FRI","SAT"];
-    let showsemana = (semana[diasemana]);
-
-    $fecha.innerHTML = `${anio}-${mes}-${dia} ${showsemana}`;
-}
-setInterval(() => {
-    digitalClock();
-},1000)
-
-
-
-// let prueba1 = [10,20,30]
-// let prueba2 = [30,40,50]
-// let prueba3 = ([...prueba1,...prueba2]);
-// console.log(prueba3);
-
-// let objetoprueba = {
-//     user: "pepe",
-//     id: 1
-// }
-// let {user,id} = objetoprueba
-// console.log(user);
-// console.log(id);
-
-// let objetoprueba1 ={
-//     ...objetoprueba,
-//     clase:1
-// };
-// console.log(objetoprueba1);

@@ -90,18 +90,24 @@ formulario.addEventListener('submit', (e) => {
 
 	const terminos = document.getElementById('terminos');
 	if(campos.usuario && campos.nombre && campos.password && campos.correo && campos.telefono && terminos.checked ){
+		
+		const userInfo = {
+            usuario: usuario.value,
+            // password: password.value
+        }
+        localStorage.setItem("userInfo", JSON.stringify(userInfo));
 		formulario.reset();
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 		setTimeout(() => {
 			document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
-		}, 5000);
+		}, 3000);
 
 		document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
 			document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');
 			icono.classList.remove('formulario__grupo-correcto');
-			go__To.classList.add("aparecer");
-			go__To.classList.remove("desaparecer");
+			// go__To.classList.add("aparecer");
+			// go__To.classList.remove("desaparecer");
 			const Toast = Swal.mixin({
                 toast: true,
                 position: 'top-end',
@@ -118,6 +124,9 @@ formulario.addEventListener('submit', (e) => {
                 icon: 'success',
                 title: 'registrer completed'
             })
+			setTimeout(() => {
+                window.location.href = "../views/simulator.html"
+            }, 3000);
 		});
 	} else {
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');

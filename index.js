@@ -8,6 +8,35 @@ const Mobile_validation = document.getElementById("Mobile_validation")
 const moonicon = document.getElementsByClassName("moonicon")
 let main = document.getElementById("main")
 
+//Inicio reloj
+
+const $tiempo = document.querySelector(".tiempo"),
+$fecha = document.querySelector(".fecha");
+const $reloj = document.querySelector(".reloj");
+
+function digitalClock() {
+    let f = new Date(),
+    dia = f.getDate(),
+    mes = f.getMonth() + 1,
+    anio = f.getFullYear(),
+    diasemana= f.getDay();
+
+    dia = ("0" + dia).slice(-2);
+    mes = ("0" + mes).slice(-2);
+
+    let timeString = f.toLocaleTimeString();
+    $tiempo.innerHTML = timeString;
+
+    let semana =["SUN","MON","TUE","WED","THU","FRI","SAT"];
+    let showsemana = (semana[diasemana]);
+
+    $fecha.innerHTML = `${anio}-${mes}-${dia} ${showsemana}`;
+}
+setInterval(() => {
+    digitalClock();
+},1000)
+
+
 //Inicio Moddark()
 let change1 = document.createElement("span");
 let change = () => {
@@ -65,9 +94,10 @@ if(localStorage.getItem("themeuser") === "true"){
     change1.classList.add("sun");
     change1.classList.add("sunicoon");
     change();
-    // $reloj.style.color = "white";
+    $reloj.style.color = "white";
 }else {
     container.classList.remove("lunar",);
+    $reloj.style.color = "#0f3854";
 }
 
 //Inicio formulario index
@@ -118,31 +148,38 @@ inputs.forEach((input) => {
 });
 
 
-formulario.addEventListener('submit', (e) => {
-    e.preventDefault();
+// formulario.addEventListener('submit', (e) => {
+//     e.preventDefault();
     
-	if(campos.usuario && campos.password){
-        const userInfo = {
-            usuario: usuario.value,
-            // password: password.value
-        }
-        localStorage.setItem("userInfo", JSON.stringify(userInfo));
-        // const userInfo = usuario.value
-        // localStorage.setItem('userInfo', userInfo);
-    }
-});
+// 	if(campos.usuario && campos.password){
+//         const userInfo = {
+//             usuario: usuario.value,
+//             // password: password.value
+//         }
+//         localStorage.setItem("userInfo", JSON.stringify(userInfo));
+//         // const userInfo = usuario.value
+//         // localStorage.setItem('userInfo', userInfo);
+//     }
+// });
 
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();
     
 	if(campos.usuario && campos.password){
         
+        const userInfo = {
+            usuario: usuario.value,
+        }
+        localStorage.setItem("userInfo", JSON.stringify(userInfo));
+        // const userInfo = usuario.value
+        // localStorage.setItem('userInfo', userInfo);
+        
         formulario.reset();
         
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 		setTimeout(() => {
             document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
-		}, 5000);
+		}, 3000);
         
 		document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
 			document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');
@@ -164,7 +201,11 @@ formulario.addEventListener('submit', (e) => {
                 title: 'Signed in successfully'
             })
             
-		});
+            setTimeout(() => {
+                window.location.href = "views/simulator.html"
+            }, 3000);
+		
+        });
 	} else {
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
         setTimeout(() => {
@@ -189,10 +230,6 @@ formulario.addEventListener('submit', (e) => {
         })
     }	
 });
-
-
-
-//Inicio Creador QR
 
 let wrapper = document.querySelector(".wrapper"),
 qrinput =wrapper.querySelector(".formG .inputg"),
@@ -220,30 +257,3 @@ generateBtn.addEventListener("click", () => {
 
 
 
-//Inicio reloj
-
-const $tiempo = document.querySelector(".tiempo"),
-$fecha = document.querySelector(".fecha");
-const $reloj = document.querySelector(".reloj");
-
-function digitalClock() {
-    let f = new Date(),
-    dia = f.getDate(),
-    mes = f.getMonth() + 1,
-    anio = f.getFullYear(),
-    diasemana= f.getDay();
-
-    dia = ("0" + dia).slice(-2);
-    mes = ("0" + mes).slice(-2);
-
-    let timeString = f.toLocaleTimeString();
-    $tiempo.innerHTML = timeString;
-
-    let semana =["SUN","MON","TUE","WED","THU","FRI","SAT"];
-    let showsemana = (semana[diasemana]);
-
-    $fecha.innerHTML = `${anio}-${mes}-${dia} ${showsemana}`;
-}
-setInterval(() => {
-    digitalClock();
-},1000)

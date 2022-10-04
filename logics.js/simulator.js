@@ -11,9 +11,9 @@ var other;
 //alert("BIENVENIDO A BLACK RHYNO EXCHANGE")
 
 
-// localStorage.getItem("userInfo", userInfo);
-
+//Inicio Localstorage-usuario
 const userInfo =  JSON.parse(localStorage.getItem('userInfo'));
+// localStorage.getItem("userInfo", userInfo);
 
 if(localStorage.getItem('userInfo')){
     const TitleUser = document.getElementById("TitleUser");
@@ -39,6 +39,18 @@ let formsix = document.getElementById("formsix");
 let formseven = document.getElementById("formseven");
 let formeigth = document.getElementById("formeigth");
 let amount = document.getElementById("amount");
+
+
+const info = document.getElementById("info")
+const btn = document.getElementById("btn")
+const paragrap = document.getElementById("paragraph")
+paragrap.style.color = "#060945";
+
+btn.addEventListener("click", (e) => {
+    (paragrap.classList.contains("desaparecer")) ?  paragrap.classList.remove("desaparecer") : paragrap.classList.add("desaparecer");
+    
+});
+
 
 function moddark1 (){
     if(forminput.style.color != "white"){
@@ -97,7 +109,7 @@ sun1.addEventListener("click", (e) => {
 });
 
 
-//Inicio Localstorage
+//Inicio Localstorage-Moddark
 
 if(localStorage.getItem("themeuser") === "true"){
     container.classList.add("lunar",);
@@ -226,21 +238,18 @@ function convertir() {
     let resultado = 0
     let euro = 310;
     
-    
-    if(!valore){
+    if(!valore || Number(valore)){
         errorConvertirdivisa.classList.remove("desaparecer")
         errorConvertirdivisa.classList.add("aparecer")  
     }
     setTimeout(() => {
         document.getElementById("errorConvertirdivisa").classList.add('desaparecer');
     }, 5000);
-    
-
-    
+            
     const Result = (moneda) => {
-        let errorConvertirdivisa = document.getElementById("errorConvertirdivisa")
         let resultado1 = document.getElementById("resultado1");
-        
+        let errorConvertirdivisa = document.getElementById("errorConvertirdivisa");
+            
         if(resultado  >= 0.01) {
             document.getElementById("resultado1").innerHTML= moneda + resultado.toFixed(2);
             errorConvertirdivisa.classList.add("desaparecer");
@@ -250,7 +259,6 @@ function convertir() {
             
             fullenter.addEventListener("keyup", () => {
                 if(!valore.value) {
-                    console.log(valore);
                     resultado1.classList.add("desaparecer");
                     resultado1.classList.remove("aparecer");
                 };    
@@ -302,7 +310,7 @@ function convertirbtc(){
     let resultado = 0
     var valore = parseInt(document.getElementById("valor").value);
     console.log(valore);
-    function Result (moneda){
+    function Result (moneda) { 
         let errorConvertirdivisa = document.getElementById("errorConvertirdivisa")
         let resultado1 = document.getElementById("resultado1");
         let fullenter = document.getElementById("fullenter");
@@ -351,16 +359,6 @@ cotizar.addEventListener("click", () => convertir() + convertirbtc());
 
 
 
-
-const info = document.getElementById("info")
-const btn = document.getElementById("btn")
-const paragrap = document.getElementById("paragraph")
-paragrap.style.color = "#060945";
-
-btn.addEventListener("click", (e) => {
-    (paragrap.classList.contains("desaparecer")) ?  paragrap.classList.remove("desaparecer") : paragrap.classList.add("desaparecer");
-    
-});
 
 
 // const opcion1 = "1.Peso ($)/Dólar(U$D)";
