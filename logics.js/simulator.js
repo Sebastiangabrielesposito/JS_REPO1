@@ -24,6 +24,35 @@ if(localStorage.getItem('userInfo')){
     TitleUser.append(tituloSimulator);
 }
 
+//Inicio Reloj
+const $tiempo = document.querySelector(".tiempo"),
+$fecha = document.querySelector(".fecha");
+const $reloj = document.querySelector(".reloj");
+
+function digitalClock() {
+    let f = new Date(),
+    dia = f.getDate(),
+    mes = f.getMonth() + 1,
+    anio = f.getFullYear(),
+    diasemana= f.getDay();
+
+    dia = ("0" + dia).slice(-2);
+    mes = ("0" + mes).slice(-2);
+
+    let timeString = f.toLocaleTimeString();
+    $tiempo.innerHTML = timeString;
+
+    let semana =["SUN","MON","TUE","WED","THU","FRI","SAT"];
+    let showsemana = (semana[diasemana]);
+
+    $fecha.innerHTML = `${anio}-${mes}-${dia} ${showsemana}`;
+}
+setInterval(() => {
+    digitalClock();
+},1000)
+
+
+
 //Inicio moddark()
 const container = document.getElementById("container");
 const moon = document.getElementById("moon");
@@ -68,6 +97,7 @@ function moddark1 (){
         moon1.classList.add("desaparecer");
         paragrap.style.color = "white";
         amount.style.color = "white";
+        $reloj.style.color = "white";
         //forminput.style.background = "azure";
         //moon1.style.color = "white";
     }else {
@@ -86,6 +116,7 @@ function moddark1 (){
         formeigth.style.color = "#17265F";
         paragrap.style.color = "#060945";
         amount.style.color = "rgb(5, 5, 53)";
+        $reloj.style.color = "#0f3854";
     }
 }    
 
@@ -127,8 +158,10 @@ if(localStorage.getItem("themeuser") === "true"){
     sun1.classList.remove("desaparecer");
     moon1.classList.add("desaparecer");
     paragrap.style.color = "white";
+    $reloj.style.color = "white";
 }else {
     container.classList.remove("lunar",);
+    $reloj.style.color = "#0f3854";
 }
 
 
