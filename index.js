@@ -148,19 +148,6 @@ inputs.forEach((input) => {
 });
 
 
-// formulario.addEventListener('submit', (e) => {
-//     e.preventDefault();
-    
-// 	if(campos.usuario && campos.password){
-//         const userInfo = {
-//             usuario: usuario.value,
-//             // password: password.value
-//         }
-//         localStorage.setItem("userInfo", JSON.stringify(userInfo));
-//         // const userInfo = usuario.value
-//         // localStorage.setItem('userInfo', userInfo);
-//     }
-// });
 
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();
